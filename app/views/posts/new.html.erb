@@ -1,0 +1,30 @@
+<div class="add-schedule-content">
+  <div class="title2">スケジュールを追加</div>
+  <%= form_tag("/posts/create") do %>
+    <select name="year">
+      <% (2023..2053).each do |year| %>
+        <option value="<%= year %>"><%= year %></option><span>年</span>
+      <% end %>
+    </select>
+    <span>年</span>
+
+    <select name="month">
+      <% (1..12).each do |month| %>
+        <option value="<%= month %>"><%= month %></option>
+      <% end %>
+    </select>
+    <span>月</span>
+
+    <select name="date">
+      <% (1..31).each do |date| %>
+        <option value="<%= date %>"><%= date %></option>
+      <% end %>
+    </select>
+    <span>日</span>
+
+    <p><input type="text" name="place" placeholder="現場名"></p>
+    <p><input type="text" name="name" value="<%= @userName %>" placeholder="名前"></p>
+    <p><textarea name="desc" placeholder="備考"></textarea></p>
+    <div class="submit"><input type="submit" value="送信"></div>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+<div class="add-schedule-content">
+    <div class="title2">投稿を修正</div>
+    <%= form_tag("/posts/#{@post.id}/update") do %>
+    <p><input type="text" name="place" placeholder="現場名" value=<%= @post.place %>></p>
+    <p><input type="text" name="name" placeholder="従業員" value=<%= @post.name %>></p>
+    <p><textarea type="text" name="desc"><%= @post.desc %></textarea></p>
+    <div class="submit"><input type="submit" value="保存"></div>
+    <% end %>
+    <div class="destroy"><%= button_to("削除", "/posts/#{@post.id}/destroy", method: :delete) %></div>
+</div>
