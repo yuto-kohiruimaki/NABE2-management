@@ -41,6 +41,17 @@ class TimesController < ApplicationController
       timestamp_post.destroy
       redirect_to times_path
     end
+
+    def show
+        @timestamp = Timestamp.find(params[:id])
+        @userName = @timestamp.name
+        @start_time_h = @timestamp.start_time_h
+        @start_time_m = @timestamp.start_time_m
+        @finish_time_h = @timestamp.finish_time_h
+        @finish_time_m = @timestamp.finish_time_m
+        @desc = @timestamp.desc
+        @userId = @timestamp.user_id
+    end
   
 end
   

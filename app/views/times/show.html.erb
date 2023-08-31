@@ -1,0 +1,19 @@
+<div class="times-show-wrapper">
+    <div class="times-show-title">勤務履歴</div>
+    <div class="times-show-name"><%= @userName %><span>さん</span></div>
+    <div class="times-show-time-container">
+        <div class="times-show-time">
+        <span>開始時刻</span><br>
+        <%= @start_time_h %>：<%= @start_time_m %>
+        </div>
+        <div class="times-show-time">
+        <span>終了時刻</span><br>
+        <%= @finish_time_h %>：<%= @finish_time_m %>
+        </div>
+    </div>
+    <p>備考</p>
+    <div class="times-show-desc"><%= @desc %></div>
+    <% if user_signed_in? && @userId == current_user.id %>
+    <%= link_to("修正", "/times/#{@timestamp.id}/edit") %>
+    <% end %>
+</div>

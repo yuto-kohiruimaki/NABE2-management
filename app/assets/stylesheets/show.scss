@@ -81,6 +81,9 @@
                 }
             }
             .content-detail {
+                @media screen and (max-width:800px) {
+                    display: none;
+                }
                 &:nth-of-type(n + 2) {
                     border-top: 0.5px solid #ccc;
                 }
@@ -95,6 +98,18 @@
                         margin: auto;
                     }
                 }
+            }
+            .circle {
+                @media screen and (min-width:801px) {
+                    display: none;
+                }
+                border-radius: 50%;
+                border: 1px solid #ccc;
+                background-color: #ccc;
+                width: 40%;
+                aspect-ratio: 1 / 1;
+                margin: auto;
+                margin-top: 0.5rem;
             }
         }
     }
@@ -113,11 +128,4 @@
     margin-top: 5rem;
     margin-bottom: 5rem;
     margin-left: -2.5vw;
-}
-
-.circle {
-    border-radius: 50%;
-    border: 1px solid #ccc;
-    width: 80%;
-    aspect-ratio: 1 / 1;
 }
