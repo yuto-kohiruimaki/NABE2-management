@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
-
-    before_action :set_user
   
     def show
-      set_user
-      @posts = Post.where(user_id: current_user.id)
+      @user = User.find(params[:id])
+      @posts = Post.where(user_id: @user.id)
   
-      @timestamps = Timestamp.where(user_id: current_user.id)
+      @timestamps = Timestamp.where(user_id: params[:id])
   
       @x = 0
       if params[:n].present?
@@ -54,24 +52,19 @@ class UsersController < ApplicationController
       @posts = {}
   
       (@first_day..@last_day).each do |day|
-        @posts[day.day] = Post.where(user_id: current_user.id, year: @this_year, month: @this_month, date: day.day)
+        @posts[day.day] = Post.where(user_id: @user.id, year: @this_year, month: @this_month, date: day.day)
       end
   
       @timestamps = {}
   
       (@first_day..@last_day).each do |day|
-        @timestamps[day.day] = Timestamp.where(user_id: current_user.id, year: @this_year, month: @this_month, date: day.day)
+        @timestamps[day.day] = Timestamp.where(user_id: @user.id, year: @this_year, month: @this_month, date: day.day)
       end
   
     end
   
     def index
-    end
-  
-    private
-  
-    def set_user
-      @user = current_user
+        @users = User.all
     end
 end
   

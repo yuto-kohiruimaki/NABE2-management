@@ -1,1 +1,10 @@
-<h1>users#index</h1>
+<div class="users-index-title">ユーザー一覧</div>
+<div class="users-index">
+    <% @users.each do |user| %>
+    <div class="index-content">
+    <%= link_to("/users/#{user.id}") do %>
+    <%= user.name %><span>さん</span>
+    <% end %>
+    </div>
+    <% end %>
+</div>

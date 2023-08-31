@@ -1,0 +1,19 @@
+.users-index-title {
+    padding-top: 15rem;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.users-index {
+    display: grid;
+    gap: 0;
+    grid-template-columns: 
+    repeat(auto-fit, minmax(300px, 1fr));
+    width: 100%;
+    margin-top: 1rem;
+    .index-content {
+        border: 1px solid #ccc;
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+}

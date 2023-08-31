@@ -15,7 +15,7 @@ class TimesController < ApplicationController
   
       timestamp = Timestamp.new(name:params[:name], year: this_year, month:params[:month], date:params[:date], start_time_h:params[:start_time_h], start_time_m:params[:start_time_m], finish_time_h:params[:finish_time_h], finish_time_m:params[:finish_time_m], desc:params[:desc], user_id:current_user.id,)
       timestamp.save
-      redirect_to times_path
+      redirect_to times_index_path
     end
   
     def edit
@@ -33,7 +33,7 @@ class TimesController < ApplicationController
       @timestamp.finish_time_m = params[:finish_time_m]
       @timestamp.desc = params[:desc]
       @timestamp.save
-      redirect_to times_path
+      redirect_to times_index_path
     end
   
     def destroy
