@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   end
 
   resources :users
+
+  get 'users/:id/show_detail' => 'users#show_detail'
+
   resources :times
 
   get 'index' => 'home#index'

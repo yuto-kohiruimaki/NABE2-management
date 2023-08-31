@@ -1,6 +1,6 @@
 <h1 class="title">SCHEDULE</h1>
 
-<%= link_to new_time_path, class: "add-schedule",  method: :get do %>スケジュールを追加<% end %>
+<%= link_to posts_new_path, class: "add-schedule",  method: :get do %>スケジュールを追加<% end %>
 
 <div class="title2-container">
 <div class="change-month"><%= link_to '←', index_path(p: @x) %></div>
@@ -29,7 +29,7 @@
 <% end %>
 </div>
 
-<%= link_to new_time_path, class: "add-schedule",  method: :get do %>スケジュールを追加<% end %>
+<%= link_to posts_new_path, class: "add-schedule",  method: :get do %>スケジュールを追加<% end %>
 
 <div class="title2-container">
 <div class="change-month"><%= link_to '←', index_path(p: @x) %></div>
