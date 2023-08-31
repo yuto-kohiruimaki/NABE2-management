@@ -2,9 +2,7 @@
 <div class="users-index">
     <% @users.each do |user| %>
     <div class="index-content">
-    <%= link_to("/users/#{user.id}") do %>
-    <%= user.name %><span> さん</span>
-    <% end %>
+    <span><%= link_to("#{user.name}", "/users/#{user.id}") %> さん</span>
     </div>
     <% end %>
 </div>
