@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  devise_scope :user do
+    devise_for :users
+    root to: 'devise/sessions#new'
+    delete 'users/sign_out' => 'devise/sessions#destroy'
+  end
+
+  resources :users
+  resources :times
+
   get 'index' => 'home#index'
 
   get 'posts/new' => 'posts#new'

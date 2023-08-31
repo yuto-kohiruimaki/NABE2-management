@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>NABE2Management</title>
+    <title>Nabe2App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +13,47 @@
   </head>
 
   <body>
+  <div class="container">
+  <div class="wrapper">
+      <header>
+      <%= link_to root_path, class: "logo" do %>
+      <div class="logo" id="logo">NABE2</div>
+      <% end %>
+      <% if user_signed_in? %>
+      <%= link_to("/users/#{current_user.id}", class: "mypage") do %>
+      <div class="mypage">マイページ</div>
+      <% end %>
+      <% end %>
+      <div class="hmb" id="hmb">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+    </header>
+
+    <div class="menu" id="menu">
+      <ul>
+        <!-- <a href="home/top" id="top"><li>TOP</li></a> -->
+        <%= link_to index_path, method: :get do %>
+        <li>スケジュール</li>
+        <% end %>
+        <%= link_to new_time_path method: :get do %>
+        <li>打刻</li>
+        <% end %>
+        <%= link_to times_path method: :get do %>
+        <li>勤務履歴一覧</li>
+        <% end %>
+        <%= link_to users_path method: :get do %>
+        <li>ユーザー一覧</li>
+        <% end %>
+        <%= link_to destroy_user_session_path method: :delete do %>
+        <li>SIGN OUT</li>
+        <% end %>
+        <a href="mailto:march09yuuto@gmail.com?subject=NABE2アプリ"><li>バグ報告・ご要望</li></a>
+      </ul>
+    </div>
     <%= yield %>
+  </div><!--wrapper-->
+  </div><!--container-->
   </body>
 </html>
