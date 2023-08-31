@@ -85,6 +85,7 @@
         border: none;
         color: #ccc;
         width: 10rem;
+        height: 3rem;
         @media (hover:hover) {
             &:hover {
                 background-color: lighten($color: #000000, $amount: 20%);
@@ -148,7 +149,8 @@
         display: block;
         text-decoration: none;
         color: inherit;
-        font-size: 2rem;
+        font-size: 1.6rem;
+        line-height: 3rem;
         background-color: #007700;
         width: 10rem;
         text-align: center;

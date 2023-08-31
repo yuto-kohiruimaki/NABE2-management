@@ -14,6 +14,6 @@
     <p>備考</p>
     <div class="times-show-desc"><%= @desc %></div>
     <% if user_signed_in? && @userId == current_user.id %>
-    <%= link_to("修正", "/times/#{@timestamp.id}/edit") %>
+    <%= link_to("修正画面へ", "/times/#{@timestamp.id}/edit") %>
     <% end %>
 </div>
