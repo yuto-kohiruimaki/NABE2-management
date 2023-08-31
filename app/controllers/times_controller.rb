@@ -39,7 +39,7 @@ class TimesController < ApplicationController
     def destroy
       timestamp_post = Timestamp.find_by(id: params[:id])
       timestamp_post.destroy
-      redirect_to times_path
+      redirect_to times_index_path
     end
 
     def show

@@ -23,6 +23,21 @@
         border: 1px solid #ccc;
         color: #ccc;
     }
+    button {
+        background-color: #aa0000;
+        margin-bottom: 3rem;
+        color: #ccc;
+        width: 10rem;
+        height: 3rem;
+        border-radius: 0;
+        border: none;
+        font-size: 1.6rem;
+        @media (hover:hover) {
+            &:hover {
+                background-color: lighten($color: #000000, $amount: 20%)
+            }
+        }
+    }
 }
 
 .times-title {
@@ -63,11 +78,13 @@
 .times-submit {
     margin-top: 2rem;
     margin-bottom: 2rem;
+    font-size: 1.6rem;
     input {
         background-color: #007700;
         border-radius: 0;
         border: none;
         color: #ccc;
+        width: 10rem;
         @media (hover:hover) {
             &:hover {
                 background-color: lighten($color: #000000, $amount: 20%);
