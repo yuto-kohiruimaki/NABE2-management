@@ -232,6 +232,6 @@
     </div>
         <div class="times-desc"><textarea name="desc" placeholder="備考"><%= @timestamp.desc %></textarea></div>
         <div class="times-submit"><input type="submit" value="修正"></div>
+        <% end %>
         <div class="destroy"><%= button_to("削除", "/times/#{@timestamp.id}/destroy", method: :delete) %></div>
-    <% end %>
 </div>
