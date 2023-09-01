@@ -62,7 +62,7 @@
             line-height: 100%;
             padding: 0.5rem;
             padding-bottom: 0;
-            font-size: 1.6rem;
+            font-size: 2rem;
             border: 0.7px solid #ccc;
             @media screen and (max-width:800px) {
                 height: 7rem;
@@ -79,10 +79,6 @@
                 &::-webkit-scrollbar {
                     width: 0;
                 }
-                // a {
-                //     color: inherit;
-                //     text-decoration: none;
-                // }
             }
             .content-detail {
                 @media screen and (max-width:800px) {
