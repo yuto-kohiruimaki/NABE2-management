@@ -34,6 +34,11 @@ class PostsController < ApplicationController
     end
 
     def show
-        @posts = Post.where(year: params[:year], month: params[:month], date: params[:date])
+        @post = Post.find(params[:day])
+        @month = @post.month
+        @date = @post.date
+        @place = @post.place
+        @name = @post.name
+        @desc = @post.desc
     end
 end

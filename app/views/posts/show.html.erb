@@ -1,3 +1,8 @@
-<% @posts.each do |post| %>
-    <%= post.place %>
-<% end %>
+<div class="posts-show-wrapper">
+<h1 class="posts-show-title">SCHEDULE</h1>
+<div class="posts-show-content"><span><%= @month %>月<%= @date %>日</div>
+<div class="posts-show-content"><span>現場名：</span><%= @place %></div>
+<div class="posts-show-content"><span>従業員：</span><%= @name %></div>
+<div class="posts-show-content"><span>備考</span><br><p><%= @desc %></p></div>
+<div class="backto"><%= link_to index_path, methjod: :get do %><span>←</span>SCHEDULE<% end %></div>
+</div>

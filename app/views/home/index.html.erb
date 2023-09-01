@@ -1,6 +1,6 @@
 <h1 class="title">SCHEDULE</h1>
 
-<%= link_to posts_new_path, class: "add-schedule",  method: :get do %>スケジュールを追加<% end %>
+<%= link_to posts_new_path, class: "add-schedule",  method: :get do %><span>＋</span>スケジュールを追加<% end %>
 
 <div class="title2-container">
 <div class="change-month"><%= link_to '←', index_path(p: @x) %></div>
@@ -16,9 +16,11 @@
             <div class="details">
                 <% @posts[day.day].each do |post| %>
                     <div class="index-content-detail">
+                    <%= link_to ("/posts/#{post.id}"), method: :get do %>
                     <p><span>現場名：</span><%= post.place %></p>
                     <p><span>従業員：</span><%= post.name %></p>
                     <p><span>備考：</span><%= post.desc %></p>
+                    <% end %>
                     <% if user_signed_in? && post.user_id == current_user.id %>
                     <%= link_to("/posts/#{post.id}/edit") do %><p class="fix-content">修正・削除</p><% end %>
                     <% end %>
@@ -29,7 +31,7 @@
 <% end %>
 </div>
 
-<%= link_to posts_new_path, class: "add-schedule",  method: :get do %>スケジュールを追加<% end %>
+<%= link_to posts_new_path, class: "add-schedule",  method: :get do %><span>＋</span>スケジュールを追加<% end %>
 
 <div class="title2-container">
 <div class="change-month"><%= link_to '←', index_path(p: @x) %></div>
