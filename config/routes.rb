@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get 'posts/:id/edit' => 'posts#edit'
   post 'posts/:id/update' => 'posts#update'
   delete 'posts/:id/destroy' => 'posts#destroy'
-  get 'posts/:day' => 'posts#show'
+  get 'posts/:id' => 'posts#show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -27,7 +27,7 @@
                 <%= period.day %>
                 <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}/edit") do %>
+                        <%= link_to("/posts/#{post.id}") do %>
                         <div class="content-detail">
                         <p><span>現場名：</span><%= post.place %></p>
                         <p><span>備考：</span><%= post.desc %></p>
@@ -49,7 +49,7 @@
                 <%= period.day %>
                     <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}/edit") do %>
+                        <%= link_to("/posts/#{post.id}") do %>
                         <div class="content-detail">
                         <p><span>現場名：</span><%= post.place %></p>
                         <p><span>備考：</span><%= post.desc %></p>
@@ -71,7 +71,7 @@
                 <%= period.day %>
                     <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}/edit") do %>
+                        <%= link_to("/posts/#{post.id}") do %>
                         <div class="content-detail">
                         <p><span>現場名：</span><%= post.place %></p>
                         <p><span>備考：</span><%= post.desc %></p>
@@ -93,7 +93,7 @@
                 <%= period.day %>
                     <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}/edit") do %>
+                        <%= link_to("/posts/#{post.id}") do %>
                         <div class="content-detail">
                         <p><span>現場名：</span><%= post.place %></p>
                         <p><span>備考：</span><%= post.desc %></p>
@@ -116,7 +116,7 @@
                 <%= period.day %>
                     <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}/edit") do %>
+                        <%= link_to("/posts/#{post.id}") do %>
                         <div class="content-detail">
                         <p><span>現場名：</span><%= post.place %></p>
                         <p><span>備考：</span><%= post.desc %></p>
@@ -140,7 +140,7 @@
             <%= period.day %> 
                 <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}/edit") do %>
+                        <%= link_to("/posts/#{post.id}") do %>
                         <div class="content-detail">
                         <p><span>現場名：</span><%= post.place %></p>
                         <p><span>備考：</span><%= post.desc %></p>

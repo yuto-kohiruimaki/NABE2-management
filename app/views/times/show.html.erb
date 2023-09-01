@@ -1,5 +1,5 @@
 <div class="times-show-wrapper">
-    <div class="times-show-title">勤務履歴</div>
+    <div class="times-show-title">打刻履歴</div>
     <div class="times-show-name"><%= @userName %><span>さん</span></div>
     <div class="times-show-date"><%= @month %>月<%= @date %>日</div>
     <div class="times-show-time-container">
@@ -16,6 +16,6 @@
     <p>備考</p>
     <div class="times-show-desc"><%= @desc %></div>
     <% if user_signed_in? && @userId == current_user.id %>
-    <%= link_to("修正画面へ", "/times/#{@timestamp.id}/edit") %>
+    <div class="backto"><%= link_to("修正画面へ", "/times/#{@timestamp.id}") %></div>
     <% end %>
 </div>

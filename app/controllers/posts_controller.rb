@@ -34,11 +34,12 @@ class PostsController < ApplicationController
     end
 
     def show
-        @post = Post.find(params[:day])
+        @post = Post.find(params[:id])
         @month = @post.month
         @date = @post.date
         @place = @post.place
         @name = @post.name
         @desc = @post.desc
+        @userId = @post.user_id
     end
 end

@@ -163,29 +163,29 @@
             font-weight: bold;
         }
     }
+// a {
+//     display: block;
+//     text-decoration: none;
+//     color: inherit;
+//     font-size: 1.6rem;
+//     line-height: 3rem;
+//     background-color: #007700;
+//     width: 10rem;
+//     text-align: center;
+//     margin: auto;
+//     margin-top: 1rem;
+//     @media (hover:hover) {
+//         &:hover {
+//             filter: brightness(1.1);
+//         }
+//     }
+// }
     .times-show-desc {
         width: 80%;
         border: 1px solid #ccc;
         margin: auto;
         padding: 0 0.5rem;
-        font-size: 1.6rem;
+        font-size: 2rem;
         white-space: pre-wrap;
-    }
-    a {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-        font-size: 1.6rem;
-        line-height: 3rem;
-        background-color: #007700;
-        width: 10rem;
-        text-align: center;
-        margin: auto;
-        margin-top: 1rem;
-        @media (hover:hover) {
-            &:hover {
-                filter: brightness(1.1);
-            }
-        }
     }
 }
