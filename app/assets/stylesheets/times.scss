@@ -56,6 +56,12 @@
     font-size: 2rem;
 }
 
+.times-place {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
 .work-date {
     text-align: center;
     font-size: 2.2rem;
@@ -146,6 +152,16 @@
         width: 80%;
         margin: auto;
         margin-top: 2rem;
+        white-space: pre-wrap;
+    }
+    .times-show-place {
+        margin: auto;
+        margin-top: 2rem;
+        font-size: 2rem;
+        width: 80%;
+        span {
+            font-weight: bold;
+        }
     }
     .times-show-desc {
         width: 80%;
@@ -165,7 +181,7 @@
         width: 10rem;
         text-align: center;
         margin: auto;
-        margin-top: 2rem;
+        margin-top: 1rem;
         @media (hover:hover) {
             &:hover {
                 filter: brightness(1.1);

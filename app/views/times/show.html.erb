@@ -12,6 +12,7 @@
         <%= @finish_time_h %>：<%= @finish_time_m %>
         </div>
     </div>
+    <p>現場：<%= @place %></p>
     <p>備考</p>
     <div class="times-show-desc"><%= @desc %></div>
     <% if user_signed_in? && @userId == current_user.id %>

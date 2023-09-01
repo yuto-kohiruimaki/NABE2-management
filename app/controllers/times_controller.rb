@@ -6,14 +6,15 @@ class TimesController < ApplicationController
     end
   
     def new
-      @userName = current_user.name
+        @userName = current_user.name
+        @place = params[:place]
     end
   
     def create
       now = Date.today
       this_year = now.year
   
-      timestamp = Timestamp.new(name:params[:name], year: this_year, month:params[:month], date:params[:date], start_time_h:params[:start_time_h], start_time_m:params[:start_time_m], finish_time_h:params[:finish_time_h], finish_time_m:params[:finish_time_m], desc:params[:desc], user_id:current_user.id,)
+      timestamp = Timestamp.new(name:params[:name], place:params[:place], year: this_year, month:params[:month], date:params[:date], start_time_h:params[:start_time_h], start_time_m:params[:start_time_m], finish_time_h:params[:finish_time_h], finish_time_m:params[:finish_time_m], desc:params[:desc], user_id:current_user.id,)
       timestamp.save
       redirect_to user_path(id: current_user.id)
     end
@@ -25,6 +26,7 @@ class TimesController < ApplicationController
     def update
       @timestamp = Timestamp.find_by(id: params[:id])
       @timestamp.name = params[:name]
+      @timestamp.place = params[:place]
       @timestamp.month = params[:month]
       @timestamp.date = params[:date]
       @timestamp.start_time_h = params[:start_time_h]
@@ -45,6 +47,7 @@ class TimesController < ApplicationController
     def show
         @timestamp = Timestamp.find(params[:id])
         @userName = @timestamp.name
+        @place = @timestamp.place
         @month = @timestamp.month
         @date = @timestamp.date
         @start_time_h = @timestamp.start_time_h
