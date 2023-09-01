@@ -5,6 +5,8 @@
 <div class="change-month"><%= link_to '→', user_path(id: params[:id], n: @x) %></div>
 </div>
 
+<%= link_to posts_new_path, class: "add-data", method: :get do %><span>＋</span>スケジュールを追加<% end %>
+
 <div class="calender-desc">-勤務予定-</div>
 
 <table class="mypage-calender">
@@ -157,6 +159,8 @@
 
 <p class="separating-border"></p>
 
+<%= link_to times_new_path, class: "add-data", method: :get do %><span>＋</span>打刻する<% end %>
+
 <div class="calender-desc">-打刻履歴-</div>
 
 <table class="mypage-calender">
@@ -186,6 +190,7 @@
                     <div class="circle"></div>
                     <% end %>
                 <% end %>
+                </div>
             <% end %>
             <% end %>
         </td>
@@ -197,6 +202,18 @@
             <% @week_period2.each do |period| %>
             <% if x == period.wday %>
                 <%= period.day %>
+                <div class="mypage-details">
+                <% @timestamps[period.day].each do |timestamp| %>
+                    <%= link_to("/times/#{timestamp.id}") do %>
+                    <div class="content-detail time">
+                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p class="to">〜</p>
+                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    </div>
+                    <div class="circle"></div>
+                    <% end %>
+                <% end %>
+                </div>
             <% end %>
             <% end %>
         </td>
@@ -208,6 +225,18 @@
             <% @week_period3.each do |period| %>
             <% if x == period.wday %>
                 <%= period.day %>
+                <div class="mypage-details">
+                <% @timestamps[period.day].each do |timestamp| %>
+                    <%= link_to("/times/#{timestamp.id}") do %>
+                    <div class="content-detail time">
+                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p class="to">〜</p>
+                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    </div>
+                    <div class="circle"></div>
+                    <% end %>
+                <% end %>
+                </div>
             <% end %>
             <% end %>
         </td>
@@ -219,6 +248,18 @@
             <% @week_period4.each do |period| %>
             <% if x == period.wday %>
                 <%= period.day %>
+                <div class="mypage-details">
+                <% @timestamps[period.day].each do |timestamp| %>
+                    <%= link_to("/times/#{timestamp.id}") do %>
+                    <div class="content-detail time">
+                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p class="to">〜</p>
+                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    </div>
+                    <div class="circle"></div>
+                    <% end %>
+                <% end %>
+                </div>
             <% end %>
             <% end %>
         </td>
@@ -231,6 +272,18 @@
             <% if x == period.wday %>
             <% if period.day >= 14 %>
                 <%= period.day %>
+                <div class="mypage-details">
+                <% @timestamps[period.day].each do |timestamp| %>
+                    <%= link_to("/times/#{timestamp.id}") do %>
+                    <div class="content-detail time">
+                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p class="to">〜</p>
+                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                </div>
+                    <div class="circle"></div>
+                    <% end %>
+                <% end %>
+                </div>
             <% end %>
             <% end %>
             <% end %>
@@ -243,7 +296,19 @@
             <td>
             <% @week_period6.each do |period| %> 
             <% if x == period.wday %>
-            <%= period.day %> 
+            <%= period.day %>
+            <div class="mypage-details">
+                <% @timestamps[period.day].each do |timestamp| %>
+                    <%= link_to("/times/#{timestamp.id}") do %>
+                    <div class="content-detail time">
+                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p class="to">〜</p>
+                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    </div>
+                    <div class="circle"></div>
+                    <% end %>
+                <% end %>
+            </div>
             <% end %>
             <% end %>
             </td>

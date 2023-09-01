@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     def create
         post = Post.new(year:params[:year], month:params[:month], date:params[:date], place:params[:place], name:params[:name], desc:params[:desc], user_id:current_user.id)
         post.save
-        redirect_to root_path
+        redirect_to user_path(id: current_user.id)
     end
 
     def edit
@@ -24,13 +24,13 @@ class PostsController < ApplicationController
         @post.name = params[:name]
         @post.desc = params[:desc]
         @post.save
-        redirect_to index_path
+        redirect_to user_path(id: current_user.id)
     end
 
     def destroy
         post = Post.find_by(id: params[:id])
         post.destroy
-        redirect_to root_path
+        redirect_to user_path(id: current_user.id)
     end
 
     def show

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'times/index' => 'times#index'
   get 'times/new' => 'times#new'
   get 'times/:id' => 'times#show'
-  get 'times/create' => 'times#create'
+  post 'times/create' => 'times#create'
   get 'times/:id/edit' => 'times#edit'
   post 'times/:id/update' => 'times#update'
   delete 'times/:id/destroy' => 'times#destroy'

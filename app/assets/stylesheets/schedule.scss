@@ -1,4 +1,4 @@
-.add-schedule {
+.add-data {
     margin-top: 2rem;
     display: block;
     display: flex;
@@ -235,6 +235,11 @@
     margin-left: auto;
     margin-right: 0;
     background-color: #007700;
+    @media (hover:hover) {
+        &:hover {
+            filter: brightness(1.1);
+        }
+    }
     a {
         text-decoration: none;
     }
@@ -258,13 +263,13 @@
         font-weight: normal;
     }
     .posts-show-content {
-        width: 30%;
+        width: 65%;
         margin: auto;
         margin-top: 2rem;
         text-align: center;
         font-size: 2.3rem;
         @media screen and (max-width:800px) {
-            width: 80%;
+            width: 90%;
         }
         &:nth-of-type(n + 2) {
             text-align: left;
