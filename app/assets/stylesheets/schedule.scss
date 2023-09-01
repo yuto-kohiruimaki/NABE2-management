@@ -167,28 +167,30 @@
         }
     }
     p {
+        text-align: left;
+        width: 65%;
+        margin: auto;
+        margin-top: 2rem;
+        line-height: 1em;
+        @media screen and (max-width:800px) {
+            width: 80%;
+        }
         input {
             font-size: 2rem;
-            margin-top: 1rem;        margin-top: 1rem;
+            margin-top: 1rem;
             background-color: #222;
             color: #ccc;
             border: 1px solid #ccc;
-            width: 50%;
-            @media screen and (max-width:800px) {
-                width: 90%;
-            }
+            width: 100%;
         }
         textarea {
-            width: 50%;
+            width: 100%;
             margin-top: 1rem;
             border: 1px solid #ccc;
             background-color: #222;
             color: #ccc;
             &::-webkit-scrollbar {
                 width: 0;
-            }
-            @media screen and (max-width:800px) {
-                width: 90%;
             }
         }
     }
