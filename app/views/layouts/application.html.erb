@@ -37,11 +37,11 @@
         <%= link_to index_path, method: :get do %>
         <li>スケジュール</li>
         <% end %>
+        <%= link_to times_index_path method: :get do %>
+        <li>打刻履歴一覧</li>
+        <% end %>
         <%= link_to times_new_path method: :get do %>
         <li>打刻</li>
-        <% end %>
-        <%= link_to times_index_path method: :get do %>
-        <li>勤務履歴一覧</li>
         <% end %>
         <%= link_to users_path method: :get do %>
         <li>ユーザー一覧</li>

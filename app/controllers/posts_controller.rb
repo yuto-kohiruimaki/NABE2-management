@@ -32,4 +32,8 @@ class PostsController < ApplicationController
         post.destroy
         redirect_to root_path
     end
+
+    def show
+        @posts = Post.where(year: params[:year], month: params[:month], date: params[:date])
+    end
 end
