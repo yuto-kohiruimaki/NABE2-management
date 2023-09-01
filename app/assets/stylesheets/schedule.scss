@@ -147,12 +147,20 @@
         font-weight: bold;
         margin-top: 2rem;
     }
-    select {
+    .select-container {
+        width: 100%;
+        white-space: nowrap;
         font-size: 2rem;
-        border: 1px solid #ccc;
-        border-radius: 0;
-        background-color: #222;
-        color: #ccc;
+        margin-top: 2rem;
+        select {
+            border: 1px solid #ccc;
+            border-radius: 0;
+            background-color: #222;
+            color: #ccc;
+        }
+        @media screen and (max-width:800px) {
+            font-size: 1.6rem;
+        }
     }
     p {
         input {
