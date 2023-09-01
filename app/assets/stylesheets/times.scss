@@ -22,6 +22,9 @@
         background-color: #222;
         border: 1px solid #ccc;
         color: #ccc;
+        &::-webkit-scrollbar {
+            width: 0;
+        }
     }
     button {
         background-color: #aa0000;
