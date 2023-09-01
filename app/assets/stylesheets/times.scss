@@ -28,12 +28,12 @@
     }
     button {
         background-color: #aa0000;
+        border: 0.5px solid #ccc;
         margin-bottom: 3rem;
         color: #ccc;
         width: 10rem;
-        height: 3rem;
+        padding: 0.5rem;
         border-radius: 0;
-        border: none;
         font-size: 1.6rem;
         @media (hover:hover) {
             &:hover {
@@ -90,11 +90,10 @@
     font-size: 1.6rem;
     input {
         background-color: #007700;
+        border: 0.5px solid #ccc;
         border-radius: 0;
-        border: none;
-        color: #ccc;
         width: 10rem;
-        height: 3rem;
+        padding: 0.5rem;
         @media (hover:hover) {
             &:hover {
                 background-color: lighten($color: #000000, $amount: 20%);
@@ -163,23 +162,6 @@
             font-weight: bold;
         }
     }
-// a {
-//     display: block;
-//     text-decoration: none;
-//     color: inherit;
-//     font-size: 1.6rem;
-//     line-height: 3rem;
-//     background-color: #007700;
-//     width: 10rem;
-//     text-align: center;
-//     margin: auto;
-//     margin-top: 1rem;
-//     @media (hover:hover) {
-//         &:hover {
-//             filter: brightness(1.1);
-//         }
-//     }
-// }
     .times-show-desc {
         width: 80%;
         border: 1px solid #ccc;

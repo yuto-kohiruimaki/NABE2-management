@@ -78,6 +78,7 @@ a.mypage {
     white-space: nowrap;
     padding: 0 1rem;
     background-color: #007700;
+    border: 0.5px solid #ccc;
     @media (hover:hover) {
         &:hover {
             filter: brightness(1.1);
