@@ -45,6 +45,8 @@ class TimesController < ApplicationController
     def show
         @timestamp = Timestamp.find(params[:id])
         @userName = @timestamp.name
+        @month = @timestamp.month
+        @date = @timestamp.date
         @start_time_h = @timestamp.start_time_h
         @start_time_m = @timestamp.start_time_m
         @finish_time_h = @timestamp.finish_time_h
