@@ -1,5 +1,6 @@
 <div class="add-schedule-content">
     <div class="title2">投稿を修正</div>
+    <div class="posts-date"><%= @month %>月<%= @date %>日</div>
     <%= form_tag("/posts/#{@post.id}/update") do %>
     <p><input type="text" name="place" placeholder="現場名" value=<%= @post.place %>></p>
     <p><input type="text" name="name" placeholder="従業員" value=<%= @post.name %>></p>

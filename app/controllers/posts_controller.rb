@@ -14,6 +14,8 @@ class PostsController < ApplicationController
 
     def edit
         @post = Post.find_by(id: params[:id])
+        @month = @post.month
+        @date = @post.date
     end
 
     def update

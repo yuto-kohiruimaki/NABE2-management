@@ -130,6 +130,7 @@
     text-align: center;
     font-size: 2rem;
     border: 1px solid #ccc;
+    padding: 2rem;
     @media screen and (max-width:800px) {
         top: 55%;
         width: 90%;
@@ -140,6 +141,11 @@
         margin-top: 2rem;
         margin: auto;
         width: 100%;
+    }
+    .posts-date {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-top: 2rem;
     }
     select {
         font-size: 2rem;
@@ -195,7 +201,6 @@
     .destroy {
         button {
             background-color: #aa0000;
-            margin-bottom: 3rem;
             color: #ccc;
             width: 10rem;
             height: 3rem;
