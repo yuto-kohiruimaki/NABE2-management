@@ -21,9 +21,7 @@
                     <p><span>従業員：</span><%= post.name %></p>
                     <p><span>備考：</span><%= post.desc %></p>
                     <% end %>
-                    <% if user_signed_in? && post.user_id == current_user.id %>
                     <%= link_to("/posts/#{post.id}/edit") do %><p class="fix-content">修正・削除</p><% end %>
-                    <% end %>
                     </div>
                 <% end %>
             </div>
