@@ -10,8 +10,6 @@
 <p><%= @desc %></p>
 <% end %>
 </div>
-<% if @userId == current_user.id %>
 <div class="backto"><%= link_to("修正画面へ", "/posts/#{@post.id}/edit") %></div>
-<% end %>
 <div class="backto schedule"><%= link_to index_path, methjod: :get do %><span>←</span>SCHEDULE<% end %></div>
 </div>
