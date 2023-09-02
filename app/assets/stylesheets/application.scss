@@ -193,28 +193,6 @@ div.hmb {
     }
 }
 
-div.now-dev {
-    position: absolute;
-    width: 100vw;
-    text-align: center;
-    overflow: wrap;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    p {
-        font-size: 7rem;
-    }
-    a {
-        font-size: 2rem;
-        color: inherit;
-    }
-    @media screen and (max-width:800px) {
-        p {
-            font-size: 4rem;
-        }
-    }
-}
-
 .account-index {
     padding-top: 15rem;
 }
