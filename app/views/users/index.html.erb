@@ -1,8 +1,10 @@
 <div class="users-index-title">ユーザー一覧</div>
 <div class="users-index">
     <% @users.each do |user| %>
+    <% if user.id >= 3 %>
     <div class="index-content">
     <span><%= link_to("#{user.name}", "/users/#{user.id}") %> さん</span>
     </div>
+    <% end %>
     <% end %>
 </div>
