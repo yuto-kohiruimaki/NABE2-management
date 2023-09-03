@@ -292,7 +292,8 @@
     <tr>
     <% 7.times do |x| %>
         <td class="<%= 'holiday' if @week_period6.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
-        <% @week_period6.each do |period| %> 
+        <% @week_period6.each do |period| %>
+        <% if x == period.wday %>
         <span><%= period.day %></span>
             <div class="mypage-details">
                 <% @posts[period.day].each do |post| %>
@@ -305,6 +306,7 @@
                     <% end %>
                 <% end %>
             </div>
+        <% end %>
         <% end %>
         </td>
     <% end %>
