@@ -20,139 +20,137 @@
       <td>土</td>
     </tr>
     <tr>
-        <% 7.times do |x| %>
-        <td>
-            <% @week_period.each do |period| %>
-            <% if x == period.wday %>
-            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
-                <div class="mypage-details">
-                    <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}") do %>
-                        <div class="content-detail">
-                        <p><span>現場名：</span><%= post.place %></p>
-                        <p><span>備考：</span><%= post.desc %></p>
-                        </div>
-                        <div class="circle"></div>
-                        <% end %>
-                    <% end %>
-                </div>
+    <% 7.times do |x| %>
+    <td class="<%= 'holiday' if @week_period.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
+    <% @week_period.each do |period| %>
+        <% if x == period.wday %>
+        <span><%= period.day %></span>
+        <div class="mypage-details">
+            <% @posts[period.day].each do |post| %>
+            <%= link_to("/posts/#{post.id}") do %>
+              <div class="content-detail">
+                <p><span>現場名：</span><%= post.place %></p>
+                <p><span>備考：</span><%= post.desc %></p>
+              </div>
+              <div class="circle"></div>
             <% end %>
             <% end %>
-        </td>
+        </div>
         <% end %>
+    <% end %>
+    </td>
+    <% end %>
     </tr>
     <tr>
-        <% 7.times do |x| %>
-        <td>
-            <% @week_period2.each do |period| %>
-            <% if x == period.wday %>
-            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
-                    <div class="mypage-details">
-                    <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}") do %>
-                        <div class="content-detail">
-                        <p><span>現場名：</span><%= post.place %></p>
-                        <p><span>備考：</span><%= post.desc %></p>
-                        </div>
-                        <div class="circle"></div>
-                        <% end %>
-                    <% end %>
-                </div>
+    <% 7.times do |x| %>
+    <td class="<%= 'holiday' if @week_period2.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
+    <% @week_period2.each do |period| %>
+        <% if x == period.wday %>
+        <span><%= period.day %></span>
+        <div class="mypage-details">
+            <% @posts[period.day].each do |post| %>
+            <%= link_to("/posts/#{post.id}") do %>
+              <div class="content-detail">
+                <p><span>現場名：</span><%= post.place %></p>
+                <p><span>備考：</span><%= post.desc %></p>
+              </div>
+              <div class="circle"></div>
             <% end %>
             <% end %>
-        </td>
+        </div>
         <% end %>
+    <% end %>
+    </td>
+    <% end %>
     </tr>
     <tr>
-        <% 7.times do |x| %>
-        <td>
-            <% @week_period3.each do |period| %>
-            <% if x == period.wday %>
-            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
-                    <div class="mypage-details">
-                    <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}") do %>
-                        <div class="content-detail">
-                        <p><span>現場名：</span><%= post.place %></p>
-                        <p><span>備考：</span><%= post.desc %></p>
-                        </div>
-                        <div class="circle"></div>
-                        <% end %>
-                    <% end %>
-                </div>
+    <% 7.times do |x| %>
+    <td class="<%= 'holiday' if @week_period3.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
+    <% @week_period3.each do |period| %>
+        <% if x == period.wday %>
+        <span><%= period.day %></span>
+        <div class="mypage-details">
+            <% @posts[period.day].each do |post| %>
+            <%= link_to("/posts/#{post.id}") do %>
+              <div class="content-detail">
+                <p><span>現場名：</span><%= post.place %></p>
+                <p><span>備考：</span><%= post.desc %></p>
+              </div>
+              <div class="circle"></div>
             <% end %>
             <% end %>
-        </td>
+        </div>
         <% end %>
+    <% end %>
+    </td>
+    <% end %>
     </tr>
     <tr>
-        <% 7.times do |x| %>
-        <td>
-            <% @week_period4.each do |period| %>
-            <% if x == period.wday %>
-            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
-                    <div class="mypage-details">
-                    <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}") do %>
-                        <div class="content-detail">
-                        <p><span>現場名：</span><%= post.place %></p>
-                        <p><span>備考：</span><%= post.desc %></p>
-                        </div>
-                        <div class="circle"></div>
-                        <% end %>
-                    <% end %>
-                </div>
+    <% 7.times do |x| %>
+    <td class="<%= 'holiday' if @week_period4.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
+    <% @week_period4.each do |period| %>
+        <% if x == period.wday %>
+        <span><%= period.day %></span>
+        <div class="mypage-details">
+            <% @posts[period.day].each do |post| %>
+            <%= link_to("/posts/#{post.id}") do %>
+              <div class="content-detail">
+                <p><span>現場名：</span><%= post.place %></p>
+                <p><span>備考：</span><%= post.desc %></p>
+              </div>
+              <div class="circle"></div>
             <% end %>
             <% end %>
-        </td>
+        </div>
         <% end %>
+    <% end %>
+    </td>
+    <% end %>
     </tr>
     <tr>
-        <% 7.times do |x| %>
-        <td>
-            <% @week_period5.each do |period| %>
-            <% if x == period.wday %>
-            <% if period.day >= 14 %>
-            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
-                    <div class="mypage-details">
-                    <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}") do %>
-                        <div class="content-detail">
-                        <p><span>現場名：</span><%= post.place %></p>
-                        <p><span>備考：</span><%= post.desc %></p>
-                        </div>
-                        <div class="circle"></div>
-                        <% end %>
-                    <% end %>
-                </div>
+    <% 7.times do |x| %>
+    <td class="<%= 'holiday' if @week_period5.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
+    <% @week_period5.each do |period| %>
+        <% if x == period.wday %>
+        <span><%= period.day %></span>
+        <div class="mypage-details">
+            <% @posts[period.day].each do |post| %>
+            <%= link_to("/posts/#{post.id}") do %>
+              <div class="content-detail">
+                <p><span>現場名：</span><%= post.place %></p>
+                <p><span>備考：</span><%= post.desc %></p>
+              </div>
+              <div class="circle"></div>
             <% end %>
             <% end %>
-            <% end %>
-        </td>
+        </div>
         <% end %>
+    <% end %>
+    </td>
+    <% end %>
     </tr>
-    <% if Random.rand(@week_period6).month == @this_month %>
+    <% if (@wlast_day5 + 1).month == @this_month %>
     <tr>
-        <% 7.times do |x| %>
-            <td>
-            <% @week_period6.each do |period| %> 
-            <% if x == period.wday %>
-            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
-                <div class="mypage-details">
-                    <% @posts[period.day].each do |post| %>
-                        <%= link_to("/posts/#{post.id}") do %>
-                        <div class="content-detail">
-                        <p><span>現場名：</span><%= post.place %></p>
-                        <p><span>備考：</span><%= post.desc %></p>
-                        </div>
-                        <div class="circle"></div>
-                        <% end %>
-                    <% end %>
-                </div>
+    <% 7.times do |x| %>
+    <td class="<%= 'holiday' if @week_period6.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
+    <% @week_period6.each do |period| %>
+        <% if x == period.wday %>
+        <span><%= period.day %></span>
+        <div class="mypage-details">
+            <% @posts[period.day].each do |post| %>
+            <%= link_to("/posts/#{post.id}") do %>
+              <div class="content-detail">
+                <p><span>現場名：</span><%= post.place %></p>
+                <p><span>備考：</span><%= post.desc %></p>
+              </div>
+              <div class="circle"></div>
             <% end %>
             <% end %>
-            </td>
+        </div>
         <% end %>
+    <% end %>
+    </td>
+    <% end %>
     </tr>
     <% end %>
 </table>
@@ -175,10 +173,10 @@
     </tr>
     <tr>
         <% 7.times do |x| %>
-        <td>
+        <td class="<%= 'holiday' if @week_period.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
             <% @week_period.each do |period| %>
             <% if x == period.wday %>
-                <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
+                <span><%= period.day %></span>
                 <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
                     <%= link_to("/times/#{timestamp.id}") do %>
@@ -198,10 +196,10 @@
     </tr>
     <tr>
         <% 7.times do |x| %>
-        <td>
+        <td class="<%= 'holiday' if @week_period2.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
             <% @week_period2.each do |period| %>
             <% if x == period.wday %>
-            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
+            <span><%= period.day %></span>
                 <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
                     <%= link_to("/times/#{timestamp.id}") do %>
@@ -221,10 +219,10 @@
     </tr>
     <tr>
         <% 7.times do |x| %>
-        <td>
+        <td class="<%= 'holiday' if @week_period3.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
             <% @week_period3.each do |period| %>
             <% if x == period.wday %>
-            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
+            <span><%= period.day %></span>
                 <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
                     <%= link_to("/times/#{timestamp.id}") do %>
@@ -244,10 +242,10 @@
     </tr>
     <tr>
         <% 7.times do |x| %>
-        <td>
+        <td class="<%= 'holiday' if @week_period4.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
             <% @week_period4.each do |period| %>
             <% if x == period.wday %>
-            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
+            <span><%= period.day %></span>
                 <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
                     <%= link_to("/times/#{timestamp.id}") do %>
@@ -267,11 +265,11 @@
     </tr>
     <tr>
         <% 7.times do |x| %>
-        <td>
+        <td class="<%= 'holiday' if @week_period5.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
             <% @week_period5.each do |period| %>
             <% if x == period.wday %>
             <% if period.day >= 14 %>
-            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
+            <span><%= period.day %></span>
                 <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
                     <%= link_to("/times/#{timestamp.id}") do %>
@@ -290,29 +288,26 @@
         </td>
         <% end %>
     </tr>
-    <% if Random.rand(@week_period6).month == @this_month %>
+    <% if (@wlast_day5 + 1).month == @this_month %>
     <tr>
-        <% 7.times do |x| %>
-            <td>
-            <% @week_period6.each do |period| %> 
-            <% if x == period.wday %>
-            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
+    <% 7.times do |x| %>
+        <td class="<%= 'holiday' if @week_period6.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
+        <% @week_period6.each do |period| %> 
+        <span><%= period.day %></span>
             <div class="mypage-details">
-                <% @timestamps[period.day].each do |timestamp| %>
-                    <%= link_to("/times/#{timestamp.id}") do %>
-                    <div class="content-detail time">
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
-                    <p class="to">〜</p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                <% @posts[period.day].each do |post| %>
+                    <%= link_to("/posts/#{post.id}") do %>
+                    <div class="content-detail">
+                    <p><span>現場名：</span><%= post.place %></p>
+                    <p><span>備考：</span><%= post.desc %></p>
                     </div>
                     <div class="circle"></div>
                     <% end %>
                 <% end %>
             </div>
-            <% end %>
-            <% end %>
-            </td>
         <% end %>
+        </td>
+    <% end %>
     </tr>
     <% end %>
 </table>

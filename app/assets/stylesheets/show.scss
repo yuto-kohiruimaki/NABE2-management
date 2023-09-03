@@ -64,14 +64,14 @@
             padding-bottom: 0;
             font-size: 1.6rem;
             border: 0.7px solid #ccc;
-            .holiday {
-                color: #f00;
-            }
             &:first-of-type {
-                background-color: rgba($color: #f00, $alpha: 0.05);
+                background-color: rgba($color: #f00, $alpha: 0.1);
             }
             &:last-of-type {
-                background-color: rgba($color: #00f, $alpha: 0.05);
+                background-color: rgba($color: #00f, $alpha: 0.1);
+            }
+            &.holiday {
+                background-color: rgba($color: #f00, $alpha: 0.1);
             }
             @media screen and (max-width:800px) {
                 height: 7rem;

@@ -96,8 +96,15 @@
         .index-content-date {
             height: 3rem;
             font-size: 2rem;
-            font-weight: bold;
             border-bottom: 1px solid #aaa;
+            span {
+                &.holiday {
+                    color: #d00;
+                }
+                &.sat {
+                    color: #06f;
+                }
+            }
         }
 
         .details {

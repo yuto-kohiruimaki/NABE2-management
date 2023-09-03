@@ -11,7 +11,10 @@
 <% (@first_day..@last_day).each do |day| %>
         <div class="index-content">
             <%= link_to posts_new_path, method: :get do %>
-            <div class="index-content-date"><%= day.day %>日 (<%= @wday[day.wday] %>)<%= link_to '+ schedule', posts_new_path, class: 'content-add-schedule', method: :get %></div>
+            <div class="index-content-date"><%= day.day %>日 
+            ( <span class="<%= "sat" if day.wday == 6 &&  !HolidayJapan.check(day) %> <%= "holiday" if day.wday == 0 || HolidayJapan.check(day) %>"><%= @wday[day.wday] %><% if HolidayJapan.check(day) %>・祝<% end %></span> )
+            <b><%= link_to '+ schedule', posts_new_path, class: 'content-add-schedule', method: :get %></b>
+            </div>
             <% end %>
             <div class="details">
                 <% @posts[day.day].each do |post| %>
