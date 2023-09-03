@@ -60,6 +60,7 @@ header {
 div.logo {
     color: #ccc;
     font-size: 5rem;
+    font-weight: bold;
     transition: 0.3s;
     @media screen and (max-width:800px) {
         font-size: 4rem;
