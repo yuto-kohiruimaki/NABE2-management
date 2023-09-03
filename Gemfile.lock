@@ -102,6 +102,7 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    holiday_japan (1.4.4)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -250,6 +251,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  holiday_japan
   importmap-rails
   jbuilder
   pg

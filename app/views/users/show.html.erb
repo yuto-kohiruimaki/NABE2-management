@@ -24,7 +24,7 @@
         <td>
             <% @week_period.each do |period| %>
             <% if x == period.wday %>
-                <%= period.day %>
+            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
                 <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
                         <%= link_to("/posts/#{post.id}") do %>
@@ -46,7 +46,7 @@
         <td>
             <% @week_period2.each do |period| %>
             <% if x == period.wday %>
-                <%= period.day %>
+            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
                     <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
                         <%= link_to("/posts/#{post.id}") do %>
@@ -68,7 +68,7 @@
         <td>
             <% @week_period3.each do |period| %>
             <% if x == period.wday %>
-                <%= period.day %>
+            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
                     <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
                         <%= link_to("/posts/#{post.id}") do %>
@@ -90,7 +90,7 @@
         <td>
             <% @week_period4.each do |period| %>
             <% if x == period.wday %>
-                <%= period.day %>
+            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
                     <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
                         <%= link_to("/posts/#{post.id}") do %>
@@ -113,7 +113,7 @@
             <% @week_period5.each do |period| %>
             <% if x == period.wday %>
             <% if period.day >= 14 %>
-                <%= period.day %>
+            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
                     <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
                         <%= link_to("/posts/#{post.id}") do %>
@@ -137,7 +137,7 @@
             <td>
             <% @week_period6.each do |period| %> 
             <% if x == period.wday %>
-            <%= period.day %> 
+            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
                 <div class="mypage-details">
                     <% @posts[period.day].each do |post| %>
                         <%= link_to("/posts/#{post.id}") do %>
@@ -178,7 +178,7 @@
         <td>
             <% @week_period.each do |period| %>
             <% if x == period.wday %>
-                <%= period.day %>
+                <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
                 <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
                     <%= link_to("/times/#{timestamp.id}") do %>
@@ -201,7 +201,7 @@
         <td>
             <% @week_period2.each do |period| %>
             <% if x == period.wday %>
-                <%= period.day %>
+            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
                 <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
                     <%= link_to("/times/#{timestamp.id}") do %>
@@ -224,7 +224,7 @@
         <td>
             <% @week_period3.each do |period| %>
             <% if x == period.wday %>
-                <%= period.day %>
+            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
                 <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
                     <%= link_to("/times/#{timestamp.id}") do %>
@@ -247,7 +247,7 @@
         <td>
             <% @week_period4.each do |period| %>
             <% if x == period.wday %>
-                <%= period.day %>
+            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
                 <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
                     <%= link_to("/times/#{timestamp.id}") do %>
@@ -271,7 +271,7 @@
             <% @week_period5.each do |period| %>
             <% if x == period.wday %>
             <% if period.day >= 14 %>
-                <%= period.day %>
+            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
                 <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
                     <%= link_to("/times/#{timestamp.id}") do %>
@@ -296,7 +296,7 @@
             <td>
             <% @week_period6.each do |period| %> 
             <% if x == period.wday %>
-            <%= period.day %>
+            <span class="<%= "holiday" if HolidayJapan.check(period) %>"><%= period.day %></span>
             <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
                     <%= link_to("/times/#{timestamp.id}") do %>
