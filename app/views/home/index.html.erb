@@ -4,7 +4,7 @@
 
 <div class="title2-container">
 <div class="change-month"><%= link_to '←', index_path(p: @x) %></div>
-<div class="title2"><%= @this_year %>年<%= @this_month %>月</div>
+<div class="title2"><%= @this_year %><span>年</span><%= @this_month %><span>月</div>
 <div class="change-month"><%= link_to '→', index_path(n: @x) %></div>
 </div>
 <div class="index">
@@ -36,6 +36,6 @@
 
 <div class="title2-container">
 <div class="change-month"><%= link_to '←', index_path(p: @x) %></div>
-<div class="title2"><%= @this_year %>年<%= @this_month %>月</div>
+<div class="title2"><%= @this_year %><span>年</span><%= @this_month %><span>月</span></div>
 <div class="change-month"><%= link_to '→', index_path(n: @x) %></div>
 </div>

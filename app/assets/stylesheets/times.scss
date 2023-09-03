@@ -1,13 +1,11 @@
 .times-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 50%;
+    margin: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     border: 1px solid #ccc;
     @media screen and (max-width:800px) {
-        top: 55%;
-        width: 90%;
+        width: 100%;
     }
     select {
         background-color: #222;
@@ -29,7 +27,7 @@
     button {
         background-color: #aa0000;
         border: 0.5px solid #ccc;
-        margin-bottom: 3rem;
+        margin-top: 2rem;
         color: #ccc;
         width: 10rem;
         padding: 0.5rem;
@@ -44,25 +42,24 @@
 }
 
 .times-title {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
     font-size: 3rem;
     text-align: center;
 }
 
 .emp-name {
-    margin-bottom: 2rem;
+    margin-top: 2rem;
     text-align: center;
     font-size: 2rem;
 }
 
 .times-place {
-    margin-bottom: 2rem;
+    margin-top: 2rem;
     text-align: center;
     font-size: 2rem;
 }
 
 .work-date {
+    margin-top: 2rem;
     text-align: center;
     font-size: 2.2rem;
 }
@@ -86,7 +83,6 @@
 
 .times-submit {
     margin-top: 2rem;
-    margin-bottom: 2rem;
     font-size: 1.6rem;
     input {
         background-color: #007700;
@@ -103,14 +99,12 @@
 }
 
 .times-show-wrapper {
-    position: absolute;
     width: 50%;
     height: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     border: 1px solid #ccc;
-    padding: 2rem;
+    margin: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
     @media screen and (max-width:800px) {
         width: 90%;
     }

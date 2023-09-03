@@ -46,6 +46,10 @@ div.wrapper {
     padding-bottom: 3rem;
 }
 
+div.alt-header {
+    height: 10rem;
+}
+
 header {
     position: fixed;
     width: 90vw;
@@ -157,6 +161,7 @@ div.hmb {
 
 .menu {
     position: fixed;
+    top: 0;
     left: 100%;
     padding-top: 10rem;
     width: 100vw;

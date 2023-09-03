@@ -1,7 +1,7 @@
 <div class="mypage-title"><%= @user.name %><span>さんのマイページ</span></div>
 <div class="title2-container">
 <div class="change-month"><%= link_to '←', user_path(id: params[:id], p: @x) %></div>
-<div class="title2"><%= @this_year %>年<%= @this_month %>月</div>
+<div class="title2"><%= @this_year %><span>年</span><%= @this_month %><span>月</span></div>
 <div class="change-month"><%= link_to '→', user_path(id: params[:id], n: @x) %></div>
 </div>
 
@@ -112,7 +112,7 @@
     <td class="<%= 'holiday' if @week_period5.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
     <% @week_period5.each do |period| %>
         <% if x == period.wday %>
-        <% if period.day >= 14 %>
+        <% if period.day >= 8 %>
         <span><%= period.day %></span>
         <div class="mypage-details">
             <% @posts[period.day].each do |post| %>
@@ -270,7 +270,7 @@
         <td class="<%= 'holiday' if @week_period5.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
             <% @week_period5.each do |period| %>
             <% if x == period.wday %>
-            <% if period.day >= 14 %>
+            <% if period.day >= 8 %>
             <span><%= period.day %></span>
                 <div class="mypage-details">
                 <% @timestamps[period.day].each do |timestamp| %>
@@ -319,6 +319,6 @@
 
 <div class="title2-container">
 <div class="change-month"><%= link_to '←', user_path(id: current_user.id, p: @x) %></div>
-<div class="title2"><%= @this_year %>年<%= @this_month %>月</div>
+<div class="title2"><%= @this_year %><span>年</span><%= @this_month %><span>月</span></div>
 <div class="change-month"><%= link_to '→', user_path(id: current_user.id, n: @x) %></div>
 </div>
