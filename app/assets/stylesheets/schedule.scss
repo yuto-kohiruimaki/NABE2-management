@@ -11,6 +11,7 @@
     text-decoration: none;
     background-color: #000;
     border: 1px solid #ccc;
+    border-radius: 1rem;
     transition: 0.3s;
     span {
         font-weight: bold;
@@ -19,6 +20,9 @@
     @media (hover:hover) {
         &:hover {
             background-color: lighten($color: #000000, $amount: 20%);
+        }
+        &:active {
+            background-color: #000;
         }
     }
 }
