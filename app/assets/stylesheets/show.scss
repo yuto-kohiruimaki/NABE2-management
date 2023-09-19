@@ -99,8 +99,10 @@
                     margin-top: 0.5rem;
                     text-align: center;
                     .to {
-                        writing-mode: vertical-rl;
-                        margin: auto;
+                        width: 1px;
+                        height: 1rem;
+                        margin: 5px auto;
+                        background-color: #ccc;
                     }
                 }
             }
