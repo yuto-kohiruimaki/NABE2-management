@@ -4,7 +4,7 @@
     <% if user.id >= 3 %>
     <div class="index-content">
         <div class="index-content-name"><span><%= link_to("#{user.name}", "/users/#{user.id}") %> さん</span></div>
-        <div class="index-content-container">
+            <div class="index-content-container">
             <div class="content">
             <p>スケジュール</p>
             <p class="length"><%= @addedSchedule.where(user_id: user.id).length %></p>
