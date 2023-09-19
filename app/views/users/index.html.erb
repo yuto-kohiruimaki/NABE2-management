@@ -3,7 +3,19 @@
     <% @users.each do |user| %>
     <% if user.id >= 3 %>
     <div class="index-content">
-    <span><%= link_to("#{user.name}", "/users/#{user.id}") %> さん</span>
+        <div class="index-content-name"><span><%= link_to("#{user.name}", "/users/#{user.id}") %> さん</span></div>
+        <div class="index-content-container">
+            <div class="content">
+            <p>スケジュール</p>
+            <p class="length"><%= @addedSchedule.where(user_id: user.id).length %></p>
+            <p>件</p>
+            </div>
+            <div class="content">
+            <p>今月の打刻回数</p>
+            <p class="length"><%= @addedTimestamp.where(user_id: user.id).length %></p>
+            <p>件</p>
+            </div>
+        </div>
     </div>
     <% end %>
     <% end %>

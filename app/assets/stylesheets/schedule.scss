@@ -21,9 +21,9 @@
         &:hover {
             background-color: lighten($color: #000000, $amount: 20%);
         }
-        &:active {
-            background-color: #000;
-        }
+    }
+    &:active {
+        background-color: #000;
     }
 }
 

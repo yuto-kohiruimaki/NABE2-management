@@ -66,6 +66,13 @@ class UsersController < ApplicationController
   
     def index
         @users = User.all
+
+        @now = Date.today
+        @this_month = @now.month
+
+        @addedSchedule = Post.where(month: @this_month)
+
+        @addedTimestamp = Timestamp.where(month: @this_month)
     end
 end
   
