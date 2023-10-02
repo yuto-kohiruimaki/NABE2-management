@@ -322,3 +322,8 @@
 <div class="title2"><%= @this_year %><span>年</span><%= @this_month %><span>月</span></div>
 <div class="change-month"><%= link_to '→', user_path(id: current_user.id, n: @x) %></div>
 </div>
+
+<% if @user.id == 1 %>
+    <%= @this_month %>月<%= @now.day %>日<br>
+    <%= @h %>時<%= @m %>分
+<% end %>
