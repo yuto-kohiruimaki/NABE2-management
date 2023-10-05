@@ -318,9 +318,9 @@
 </table>
 
 <div class="title2-container">
-<div class="change-month"><%= link_to '←', user_path(id: current_user.id, p: @x) %></div>
+<div class="change-month"><%= link_to '←', user_path(id: params[:id], p: @x) %></div>
 <div class="title2"><%= @this_year %><span>年</span><%= @this_month %><span>月</span></div>
-<div class="change-month"><%= link_to '→', user_path(id: current_user.id, n: @x) %></div>
+<div class="change-month"><%= link_to '→', user_path(id: params[:id], n: @x) %></div>
 </div>
 
 <% if @user.id == 1 %>
