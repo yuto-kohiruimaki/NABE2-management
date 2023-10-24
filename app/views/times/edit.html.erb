@@ -4,7 +4,7 @@
     <div class="emp-name"><span>従業員：</span><input type="text" name="name" value="<%= @timestamp.name %>" placeholder="名前"></div>
     <div class="times-place"><span>現場名：</span><input type="text" name="place" value="<%= @timestamp.place %>" placeholder="現場名"></div>
     <div class="work-date">
-        <select type="number" name="month">
+        <select type="number" name="month" id="month">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -18,7 +18,7 @@
             <option value="11">11</option>
             <option value="12">12</option>
         </select><span>月</span>
-        <select type="number" name="date">
+        <select type="number" name="date" id="date">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

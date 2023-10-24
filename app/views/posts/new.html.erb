@@ -1,3 +1,7 @@
+<head>
+    <%= javascript_import_module_tag "post" %>
+</head>
+
 <div class="add-schedule-content">
     <div class="title2">スケジュールを追加</div>
     <%= form_tag("/posts/create") do %>
@@ -9,14 +13,14 @@
         </select>
         <span>年</span>
 
-        <select name="month">
+        <select name="month" id="month">
         <% (1..12).each do |month| %>
             <option value="<%= month %>"><%= month %></option>
         <% end %>
         </select>
         <span>月</span>
 
-        <select name="date">
+        <select name="date" id="date">
         <% (1..31).each do |date| %>
             <option value="<%= date %>"><%= date %></option>
         <% end %>
