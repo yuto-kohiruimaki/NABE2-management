@@ -24,7 +24,7 @@
       <div class="logo" id="logo">NABE2</div>
       <% end %>
       <% if user_signed_in? %>
-      <%= link_to("/users/#{current_user.id}", class: "mypage") do %>
+      <%= link_to user_path(id: current_user.id), class: "mypage" do %>
       <div class="mypage">マイページ</div>
       <% end %>
       <% end %>

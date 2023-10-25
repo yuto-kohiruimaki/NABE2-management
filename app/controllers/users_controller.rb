@@ -69,13 +69,28 @@ class UsersController < ApplicationController
     end
   
     def index
+        @x = 0
+        if params[:n].present?
+          @x = params[:n].to_i + 1
+        elsif params[:p].present?
+          @x = params[:p].to_i - 1
+        end
+
         @users = User.all
 
-        @now = Date.today
-        @this_month = @now.month
+        now = Date.today
+        @this_month = now.month + @x
+        @this_year = now.year
+
+        if @this_month > 12
+          @this_month -= 12
+          @this_year += 1
+        elsif @this_month < 1
+          @this_month += 12
+          @this_year -= 1
+        end
 
         @addedSchedule = Post.where(month: @this_month)
-
         @addedTimestamp = Timestamp.where(month: @this_month)
     end
 end
