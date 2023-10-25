@@ -4,22 +4,22 @@ class UsersController < ApplicationController
     def show
       @user = User.find(params[:id])
       @posts = Post.where(user_id: @user.id)
-  
       @timestamps = Timestamp.where(user_id: params[:id])
-  
+
       @x = 0
-      if params[:n].present?
-        @x = params[:n].to_i + 1
-      elsif params[:p].present?
+
+      if params[:p].present?
         @x = params[:p].to_i - 1
+      elsif params[:n].present?
+        @x = params[:n].to_i + 1
       else
         @x = 0
       end
-  
-      @now = Date.today
+
+      @this_year = params[:year].to_i
+      @this_month = params[:month].to_i + @x
+
       @wday = ["日", "月", "火", "水", "木", "金", "土"]
-      @this_year = @now.year
-      @this_month = @now.month + @x
 
       @d = DateTime.now
       @h = @d.hour
@@ -79,15 +79,15 @@ class UsersController < ApplicationController
         @users = User.all
 
         now = Date.today
-        @this_month = now.month + @x
-        @this_year = now.year
+        @month = now.month + @x
+        @year = now.year
 
-        if @this_month > 12
-          @this_month -= 12
-          @this_year += 1
-        elsif @this_month < 1
-          @this_month += 12
-          @this_year -= 1
+        if @month > 12
+          @month -= 12
+          @year += 1
+        elsif @month < 1
+          @month += 12
+          @year -= 1
         end
 
         @addedSchedule = Post.where(month: @this_month)

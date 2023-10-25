@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
-
+        before_action :get_date
+        def get_date
+            now = Date.today
+            @abs_this_year = now.year
+            @abs_this_month = now.month
+        end
+        
         def after_sign_in_path_for(resource)
             index_path
         end
