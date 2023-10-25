@@ -90,8 +90,8 @@ class UsersController < ApplicationController
           @year -= 1
         end
 
-        @addedSchedule = Post.where(month: @this_month)
-        @addedTimestamp = Timestamp.where(month: @this_month)
+        @addedSchedule = Post.where(year: @year, month: @month)
+        @addedTimestamp = Timestamp.where(year: @year, month: @month)
     end
 end
   
