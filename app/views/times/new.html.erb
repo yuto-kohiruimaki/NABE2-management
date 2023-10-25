@@ -3,7 +3,7 @@
 </head>
 
 <div class="times-wrapper">
-<%= form_tag ("/times/create") do %>
+<%= form_tag("/times", method: :post) do %>
     <div class="times-title">打刻</div>
     <div class="emp-name"><span>従業員：</span><input type="text" name="name" value="<%= @userName %>" placeholder="名前"></div>
     <div class="times-place"><span>現場名：</span><input type="text" name="place" value="<%= @place %>" placeholder="現場名"></div>

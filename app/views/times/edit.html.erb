@@ -1,5 +1,5 @@
 <div class="times-wrapper">
-<%= form_tag("/times/#{@timestamp.id}/update") do %>
+<%= form_tag("/times/#{@timestamp.id}", method: :patch) do %>
     <div class="times-title">打刻</div>
     <div class="emp-name"><span>従業員：</span><input type="text" name="name" value="<%= @timestamp.name %>" placeholder="名前"></div>
     <div class="times-place"><span>現場名：</span><input type="text" name="place" value="<%= @timestamp.place %>" placeholder="現場名"></div>
@@ -234,5 +234,5 @@
         <div class="times-desc"><textarea name="desc" placeholder="備考"><%= @timestamp.desc %></textarea></div>
         <div class="times-submit"><input type="submit" value="修正"></div>
         <% end %>
-        <div class="destroy"><%= button_to("削除", "/times/#{@timestamp.id}/destroy", method: :delete) %></div>
+        <div class="destroy"><%= button_to("削除", "/times/#{@timestamp.id}", method: :delete) %></div>
 </div>

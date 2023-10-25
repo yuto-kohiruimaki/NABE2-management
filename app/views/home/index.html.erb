@@ -4,13 +4,15 @@
 
 <div class="title">SCHEDULE</div>
 
-<%= link_to posts_new_path, class: "add-data",  method: :get do %><span>＋</span>スケジュールを追加<% end %>
+<%= link_to new_post_path, class: "add-data",  method: :get do %><span>＋</span>スケジュールを追加<% end %>
 
 <div class="title2-container">
 <div class="change-month"><%= link_to '←', index_path(p: @x) %></div>
 <div class="title2"><%= @this_year %><span>年</span><%= @this_month %><span>月</span></div>
 <div class="change-month"><%= link_to '→', index_path(n: @x) %></div>
 </div>
+<div class="schedule-announcement"><span><%= @addedScheduleLength %></span> 件の追加</div>
+<div class="schedule-announcement-line"></div>
 <div class="index" id="<%= @this_month %>">
 <% (@first_day..@last_day).each do |day| %>
         <div class="index-content">
@@ -34,7 +36,7 @@
 <% end %>
 </div>
 
-<%= link_to posts_new_path, class: "add-data",  method: :get do %><span>＋</span>スケジュールを追加<% end %>
+<%= link_to new_post_path, class: "add-data",  method: :get do %><span>＋</span>スケジュールを追加<% end %>
 
 <div class="title2-container">
 <div class="change-month"><%= link_to '←', index_path(p: @x) %></div>

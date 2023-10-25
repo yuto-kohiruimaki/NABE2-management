@@ -39,13 +39,13 @@
     <div class="menu" id="menu">
       <ul>
         <!-- <a href="home/top" id="top"><li>TOP</li></a> -->
-        <%= link_to index_path, method: :get do %>
+        <%= link_to index_path do %>
         <li>スケジュール</li>
         <% end %>
-        <%= link_to times_new_path method: :get do %>
+        <%= link_to new_time_path do %>
         <li>打刻</li>
         <% end %>
-        <%= link_to users_path method: :get do %>
+        <%= link_to users_path do %>
         <li>ユーザー一覧</li>
         <% end %>
         <%= link_to destroy_user_session_path method: :delete do %>

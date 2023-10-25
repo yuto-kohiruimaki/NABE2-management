@@ -5,7 +5,7 @@
 <div class="change-month"><%= link_to '→', user_path(id: params[:id], n: @x) %></div>
 </div>
 
-<%= link_to posts_new_path, class: "add-data", method: :get do %><span>＋</span>スケジュールを追加<% end %>
+<%= link_to new_post_path, class: "add-data", method: :get do %><span>＋</span>スケジュールを追加<% end %>
 
 <div class="calender-title">-勤務予定-</div>
 
@@ -159,7 +159,7 @@
 
 <p class="separating-border"></p>
 
-<%= link_to times_new_path, class: "add-data", method: :get do %><span>＋</span>打刻する<% end %>
+<%= link_to new_time_path, class: "add-data" do %><span>＋</span>打刻する<% end %>
 
 <div class="calender-title">-打刻履歴-</div>
 

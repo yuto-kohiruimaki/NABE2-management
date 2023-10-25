@@ -19,7 +19,7 @@
     <% else %>
     <div class="times-show-desc"><%= @desc %></div>
     <% end %>
-    <% if user_signed_in? && @userId == current_user.id %>
-    <div class="backto"><%= link_to("修正画面へ", "/times/#{@timestamp.id}/edit") %></div>
+    <% if @userId == current_user.id %>
+    <%= link_to edit_time_path(id: @timestamp.id), class: "backto" do %>修正画面へ<% end %>
     <% end %>
 </div>

@@ -32,5 +32,7 @@ class HomeController < ApplicationController
     (@first_day..@last_day).each do |day|
       @posts[day.day] = Post.where(year: @this_year, month: @this_month, date: day.day)
     end
+
+    @addedScheduleLength = Post.where(year: @this_year, month: @this_month).length
   end
 end

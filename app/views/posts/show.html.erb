@@ -10,6 +10,6 @@
 <p><%= @desc %></p>
 <% end %>
 </div>
-<div class="backto"><%= link_to("修正画面へ", "/posts/#{@post.id}/edit") %></div>
-<div class="backto schedule"><%= link_to index_path, methjod: :get do %><span>←</span>SCHEDULE<% end %></div>
+<%= link_to edit_post_path(id: @post.id), class: "backto" do %>修正画面へ<% end %>
+<%= link_to index_path, class: "backto" do %><span>←</span>SCHEDULE<% end %>
 </div>

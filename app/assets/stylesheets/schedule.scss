@@ -72,13 +72,29 @@ div.title2-container {
     }
 }
 
+.schedule-announcement {
+    text-align: center;
+    font-size: 1.6rem;
+    span {
+        font-size: 2.4rem;
+        font-weight: bold;
+    }
+}
+
+.schedule-announcement-line {
+    width: 80%;
+    height: 1px;
+    margin: auto;
+    background-color: #777;
+}
+
 .index {
     display: grid;
     gap: 0;
     grid-template-columns: 
         repeat(auto-fit, minmax(300px, 1fr));
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 2rem;
     .index-content {
         padding: 0 1rem;
         height: 200px;
@@ -302,7 +318,10 @@ div.title2-container {
     }
 }
 
-.backto {
+a.backto {
+    display: block;
+    text-decoration: none;
+    color: inherit;
     font-size: 1.6rem;
     line-height: 3rem;
     background-color: #007700;
@@ -314,10 +333,6 @@ div.title2-container {
     padding: 0.5rem;
     &.schedule {
         margin-top: 5rem;
-    }
-    a {
-        text-decoration: none;
-        color: inherit;
     }
     @media (hover:hover) {
         &:hover {
