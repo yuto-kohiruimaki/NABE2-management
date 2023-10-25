@@ -1,7 +1,3 @@
-<head>
-    <%= javascript_import_module_tag "user" %>
-</head>
-
 <div class="mypage-title"><%= @user.name %><span>さんのマイページ</span></div>
 <div class="title2-container">
 <div class="change-month go-pre"><%= link_to '←', user_path(id: params[:id], year: params[:year], month: params[:month], p: @x) %></div>
@@ -326,8 +322,3 @@
 <div class="title2"><%= @this_year %><span>年</span><%= @this_month %><span>月</span></div>
 <div class="change-month"><%= link_to '→', user_path(id: params[:id], n: @x) %></div>
 </div>
-
-<% if @user.id == 1 %>
-    <%= @this_month %>月<%= @now.day %>日<br>
-    <%= @h %>時<%= @m %>分
-<% end %>
