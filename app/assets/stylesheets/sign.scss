@@ -47,8 +47,8 @@ div.sign-form {
             height: 3rem;
             background-color: #007700;
             color: #ccc;
-            border: 0.5px solid #ccc;
-            border-radius: 0;
+            border: none;
+            border-radius: 5px;
             font-size: 1.6rem;
             @media (hover:hover) {
                 &:hover {

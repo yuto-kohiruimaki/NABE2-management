@@ -21,12 +21,12 @@
   <div class="wrapper">
       <header>
       <%= link_to root_path, class: "logo" do %>
-      <div class="logo" id="logo">NABE2</div>
+        <div class="logo" id="logo">NABE2</div>
       <% end %>
       <% if user_signed_in? %>
-      <%= link_to user_path(id: current_user.id, year: @abs_this_year, month: @abs_this_month), class: "mypage" do %>
-      <div class="mypage">マイページ</div>
-      <% end %>
+        <%= link_to user_path(id: current_user.id, year: @abs_this_year, month: @abs_this_month), class: "mypage" do %>
+        マイページ
+        <% end %>
       <% end %>
       <div class="hmb" id="hmb">
           <span></span>

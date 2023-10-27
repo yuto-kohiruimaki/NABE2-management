@@ -230,9 +230,9 @@ div.title2-container {
             padding: 0.5rem;
             background-color: #007700;
             color: inherit;
-            border: 0.5px solid #ccc;
+            border: none;
+            border-radius: 5px;
             font-size: 1.6rem;
-            border-radius: 0;
             @media (hover:hover) {
                 &:hover {
                     background-color: lighten($color: #000000, $amount: 20%);
@@ -240,40 +240,22 @@ div.title2-container {
             }
         }
     }
-    .destroy {
-        button {
-            background-color: #aa0000;
-            color: #ccc;
-            width: 10rem;
-            padding: 0.5rem;
-            border-radius: 0;
-            border: 0.5px solid #cccc;
-            font-size: 1.6rem;
-            margin-top: 2rem;
-            @media (hover:hover) {
-                &:hover {
-                    background-color: lighten($color: #000000, $amount: 20%)
-                }
-            }
-        }
-    }
 }
 
-.fix-content {
+a.fix-content {
+    display: block;
     width: fit-content;
     text-align: center;
-    padding: 0 0.5rem;
+    padding: .1rem 1rem;
     margin-left: auto;
     margin-right: 0;
     background-color: #007700;
-    border: 0.5px solid #ccc;
+    border-radius: 5px 5px;
+    font-size: 1.6rem;
     @media (hover:hover) {
         &:hover {
             filter: brightness(1.1);
         }
-    }
-    a {
-        text-decoration: none;
     }
 }
 
@@ -325,7 +307,7 @@ a.backto {
     font-size: 1.6rem;
     line-height: 3rem;
     background-color: #007700;
-    border: 0.5px solid #ccc;
+    border-radius: 5px;
     width: 15rem;
     text-align: center;
     margin: auto;
@@ -337,6 +319,24 @@ a.backto {
     @media (hover:hover) {
         &:hover {
             filter: brightness(1.1);
+        }
+    }
+}
+
+div.destroy {
+    button {
+        background-color: #aa0000;
+        color: #ccc;
+        width: 10rem;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.6rem;
+        margin-top: 1rem;
+        @media (hover:hover) {
+            &:hover {
+                background-color: lighten($color: #000000, $amount: 20%)
+            }
         }
     }
 }

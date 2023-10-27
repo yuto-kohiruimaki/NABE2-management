@@ -79,11 +79,11 @@ a.mypage {
     color: inherit;
     width: fit-content;
     height: 3rem;
+    line-height: 3rem;
     font-size: 2rem;
-    white-space: nowrap;
     padding: 0 1rem;
     background-color: #007700;
-    border: 0.5px solid #ccc;
+    border-radius: 5px 5px;
     @media (hover:hover) {
         &:hover {
             filter: brightness(1.1);

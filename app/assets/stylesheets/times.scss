@@ -85,8 +85,8 @@
     font-size: 1.6rem;
     input {
         background-color: #007700;
-        border: 0.5px solid #ccc;
-        border-radius: 0;
+        border: none;
+        border-radius: 5px;
         width: 10rem;
         padding: 0.5rem;
         @media (hover:hover) {

@@ -1,5 +1,6 @@
 class TimesController < ApplicationController
     before_action :authenticate_user!
+    before_action :get_abs_date, only: [:create, :update, :destroy]
   
     def index
       @timestamps = Timestamp.all.order(updated_at: "DESC")
@@ -35,7 +36,6 @@ class TimesController < ApplicationController
       @timestamp.finish_time_m = params[:finish_time_m]
       @timestamp.desc = params[:desc]
       @timestamp.save
-      redirect_to user_path(id: current_user.id)
     end
   
     def destroy
@@ -57,6 +57,15 @@ class TimesController < ApplicationController
         @desc = @timestamp.desc
         @userId = @timestamp.user_id
     end
-  
+
+    private
+
+    def get_abs_date
+      now = Date.today
+      @abs_this_year = now.year
+      @abs_this_month = now.month
+
+      redirect_to user_path(id: current_user.id, year: @abs_this_year, month: @abs_this_month)
+    end
 end
   

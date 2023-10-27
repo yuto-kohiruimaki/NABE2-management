@@ -28,7 +28,7 @@
                     <p><span>従業員：</span><%= post.name %></p>
                     <p><span>備考：</span><%= post.desc %></p>
                     <% end %>
-                    <%= link_to("/posts/#{post.id}/edit") do %><p class="fix-content">修正・削除</p><% end %>
+                    <%= link_to edit_post_path(id: post.id), class: "fix-content" do %>修正・削除<% end %>
                     </div>
                 <% end %>
             </div>
