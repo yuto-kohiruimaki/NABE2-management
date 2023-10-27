@@ -1,3 +1,7 @@
+<head>
+    <%= javascript_import_module_tag "edit-time" %>
+</head>
+
 <div class="times-wrapper">
 <%= form_tag("/times/#{@timestamp.id}", method: :patch) do %>
     <div class="times-title">打刻</div>
