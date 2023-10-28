@@ -12,12 +12,9 @@ class TimesController < ApplicationController
     end
   
     def create
-      now = Date.today
-      this_year = now.year
-  
-      timestamp = Timestamp.new(name:params[:name], place:params[:place], year: this_year, month:params[:month], date:params[:date], start_time_h:params[:start_time_h], start_time_m:params[:start_time_m], finish_time_h:params[:finish_time_h], finish_time_m:params[:finish_time_m], desc:params[:desc], user_id:current_user.id,)
+      timestamp = Timestamp.new(name:params[:name], place:params[:place], year: @abs_this_year, month:params[:month], date:params[:date], start_time_h:params[:start_time_h], start_time_m:params[:start_time_m], finish_time_h:params[:finish_time_h], finish_time_m:params[:finish_time_m], desc:params[:desc], user_id:current_user.id,)
       timestamp.save
-      redirect_to user_path(id: current_user.id)
+      redirect_to user_path(id: current_user.id, year: @abs_this_year, month: @abs_this_month)
     end
   
     def edit
@@ -36,12 +33,13 @@ class TimesController < ApplicationController
       @timestamp.finish_time_m = params[:finish_time_m]
       @timestamp.desc = params[:desc]
       @timestamp.save
+      redirect_to user_path(id: current_user.id, year: @abs_this_year, month: @abs_this_month)
     end
   
     def destroy
       timestamp_post = Timestamp.find_by(id: params[:id])
       timestamp_post.destroy
-      redirect_to user_path(id: current_user.id)
+      redirect_to user_path(id: current_user.id, year: @abs_this_year, month: @abs_this_month)
     end
 
     def show
@@ -64,8 +62,6 @@ class TimesController < ApplicationController
       now = Date.today
       @abs_this_year = now.year
       @abs_this_month = now.month
-
-      redirect_to user_path(id: current_user.id, year: @abs_this_year, month: @abs_this_month)
     end
 end
   
