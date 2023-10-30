@@ -317,6 +317,11 @@
     <% end %>
 </table>
 
+<% if @user.id == 1 %>
+<%= @month %>月<%= @day %>日<br>
+<%= @hour %>時<%= @minute %>分
+<% end %>
+
 <div class="title2-container">
 <div class="change-month go-pre"><%= link_to '←', user_path(id: params[:id], year: params[:year], month: params[:month], p: @x) %></div>
 <div class="title2"><%= @this_year %><span>年</span><%= @this_month %><span>月</span></div>
