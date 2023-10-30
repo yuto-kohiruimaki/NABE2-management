@@ -78,7 +78,7 @@ class UsersController < ApplicationController
           @x = params[:p].to_i - 1
         end
 
-        @users = User.all
+        @users = User.all.order(id: "ASC")
 
         now = Date.today
         @month = now.month + @x
