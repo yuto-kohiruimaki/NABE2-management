@@ -14,192 +14,247 @@
  *= require_self
  */
 
-*,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}ul[role="list"],ol[role="list"]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 html {
-    overflow-x: hidden;
-    font-size: 10px;
-    font-family: sans-serif;
-    &::-webkit-scrollbar {
-        width: 0;
-    }
+  overflow-x: hidden;
+  font-size: 10px;
+  font-family: sans-serif;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 body {
-    background-color: #111;
-    color: #ccc;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
+  background-color: #171717;
+  color: #ccc;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 div.container {
-    width: 100%;
-    height: 100%;
-    background-color: #111;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #171717;
+  position: relative;
 }
 
 div.wrapper {
-    width: 90vw;
-    margin: auto;
-    padding-bottom: 3rem;
+  width: 90vw;
+  margin: auto;
+  padding-bottom: 3rem;
 }
 
 div.alt-header {
-    height: 10rem;
+  height: 10rem;
 }
 
 header {
-    position: fixed;
-    width: 90vw;
-    display: flex;
-    align-items: center;
-    z-index: 100;
-    a {
-        text-decoration: none;
-    }
+  position: fixed;
+  width: 90vw;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  a {
+    text-decoration: none;
+  }
 }
 
 div.logo {
-    color: #ccc;
-    font-size: 5rem;
-    font-weight: bold;
-    transition: 0.3s;
-    @media screen and (max-width:800px) {
-        font-size: 4rem;
-    }
+  color: #ccc;
+  font-size: 5rem;
+  font-weight: bold;
+  transition: 0.3s;
+  @media screen and (max-width: 800px) {
+    font-size: 4rem;
+  }
 }
 
 a.mypage {
-    position: fixed;
-    right: calc(5vw + 10rem);
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    width: fit-content;
-    height: 3rem;
-    line-height: 3rem;
-    font-size: 2rem;
-    padding: 0 1rem;
-    background-color: #007700;
-    border-radius: 5px 5px;
-    @media (hover:hover) {
-        &:hover {
-            filter: brightness(1.1);
-        }
+  position: fixed;
+  right: calc(5vw + 10rem);
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: fit-content;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 2rem;
+  padding: 0 1rem;
+  background-color: #007700;
+  border-radius: 5px 5px;
+  @media (hover: hover) {
+    &:hover {
+      filter: brightness(1.1);
     }
-    @media screen and (max-width:800px) {
-        right: calc(5vw + 5rem);
-    }
+  }
+  @media screen and (max-width: 800px) {
+    right: calc(5vw + 5rem);
+  }
 }
 
 div.hmb {
-    margin-left: auto;
-    margin-right: 0;
-    position: relative;
-    width: 5rem;
-    height: 5rem;
-    cursor: pointer;
+  margin-left: auto;
+  margin-right: 0;
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  cursor: pointer;
+  span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 3px;
+    transition: 0.3s;
+    background-color: #ccc;
+    &:first-of-type {
+      top: 1.5rem;
+    }
+    &:nth-last-of-type(2) {
+      top: calc(50% - 1.5px);
+    }
+    &:last-of-type {
+      bottom: 1.5rem;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    width: 4rem;
+    height: 4rem;
     span {
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 3px;
-        transition: 0.3s;
-        background-color: #ccc;
+      height: 2.4px;
+      &:first-of-type {
+        top: 0.9rem;
+      }
+      &:nth-last-of-type(2) {
+        top: calc(50% - 1.2px);
+      }
+      &:last-of-type {
+        bottom: 0.9rem;
+      }
+    }
+  }
+  @media (hover: hover) {
+    &:hover {
+      span {
         &:first-of-type {
-            top: 1.5rem;
-        }
-        &:nth-last-of-type(2) {
-            top: calc(50% - 1.5px);
+          top: 0.5rem;
         }
         &:last-of-type {
-            bottom: 1.5rem;
+          bottom: 0.5rem;
         }
+      }
     }
-    @media screen and (max-width:800px) {
-        width: 4rem;
-        height: 4rem;
-        span {
-            height: 2.4px;
-            &:first-of-type {
-                top: 0.9rem;
-            }
-            &:nth-last-of-type(2) {
-                top: calc(50% - 1.2px);
-            }
-            &:last-of-type {
-                bottom: 0.9rem;
-            }
-        }
+  }
+  &.active {
+    span {
+      background-color: #ccc;
+      &:first-of-type {
+        top: calc(50% - 1.5px);
+      }
+      &:last-of-type {
+        bottom: calc(50% - 1.5px);
+      }
     }
-    @media (hover:hover) {
-        &:hover {
-            span {
-                &:first-of-type {
-                    top: 0.5rem;
-                }
-                &:last-of-type {
-                    bottom: 0.5rem;
-                }
-            }
-        }   
-    }  
-    &.active {
-        span {
-            background-color: #ccc;
-            &:first-of-type {
-                top: calc(50% - 1.5px);
-            }
-            &:last-of-type {
-                bottom: calc(50% - 1.5px);
-            }
-        }
-    }
+  }
 }
 
 .menu {
-    position: relative;
-    position: fixed;
-    top: 0;
-    left: 100%;
-    padding-top: 10rem;
-    width: 100vw;
-    height: 100vh;
-    background-color: #111;
-    z-index: 99;
-    transition: 0.3s;
-    ul {
-        list-style: none;
-        padding-left: 0;
-        font-size: 4rem;
-        @media screen and (max-width:800px) {
-            font-size: 3rem;
-        }
-        li {
-            width: 90%;
-            margin: auto;
-            padding: 1rem;
-            border-bottom: 1px solid #ccc;
-            text-align: center;
-            transition: 0.3s;
-            @media (hover:hover) {
-                &:hover {
-                    background-color: lighten($color: #222, $amount: 20%);
-                }
-            }
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  padding-top: 10rem;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111;
+  z-index: 99;
+  transition: 0.3s;
+  ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 4rem;
+    @media screen and (max-width: 800px) {
+      font-size: 3rem;
     }
-    &.active {
-        left: 0;
+    li {
+      width: 90%;
+      margin: auto;
+      padding: 1rem;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+      transition: 0.3s;
+      @media (hover: hover) {
+        &:hover {
+          background-color: lighten($color: #222, $amount: 20%);
+        }
+      }
     }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  &.active {
+    left: 0;
+  }
 }
 
 .account-index {
-    padding-top: 15rem;
+  padding-top: 15rem;
 }

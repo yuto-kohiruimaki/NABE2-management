@@ -57,13 +57,13 @@ class UsersController < ApplicationController
       @week_period6 = ((@wlast_day5 + 1)..@wlast_day6)
   
       @posts = {}
-  
+      
       (@first_day..@last_day).each do |day|
         @posts[day.day] = Post.where(user_id: @user.id, year: @this_year, month: @this_month, date: day.day)
       end
   
       @timestamps = {}
-  
+
       (@first_day..@last_day).each do |day|
         @timestamps[day.day] = Timestamp.where(user_id: @user.id, year: @this_year, month: @this_month, date: day.day)
       end
