@@ -1,4 +1,6 @@
-document.addEventListener("turbo:load", () => {
+
+    console.log("test");
+
     const getDay = new Date();
     const thisMonth = getDay.getMonth() + 1;
     const today = getDay.getDate();
@@ -22,4 +24,3 @@ document.addEventListener("turbo:load", () => {
     const dateValuesArr = Object.values(dateArr);
     const findDate = dateValuesArr.find((num) => num == today);
     dateOptions[findDate - 1].selected = true;
-})

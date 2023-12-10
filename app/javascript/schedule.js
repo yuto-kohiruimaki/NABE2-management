@@ -1,4 +1,4 @@
-document.addEventListener("turbo:load", () => {
+
     const index = document.getElementsByClassName('index')[0];
     const dateArr = document.querySelectorAll('.content-add-schedule');
     
@@ -13,4 +13,3 @@ document.addEventListener("turbo:load", () => {
             window.location.href = `/posts/new?month=${month}&date=${date}`;
         });
     }
-})

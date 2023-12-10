@@ -1,4 +1,4 @@
-document.addEventListener("turbo:load", () => {
+
     const urlParams = new URLSearchParams(window.location.search);
     const month = urlParams.get('month');
     const date = urlParams.get('date');
@@ -22,4 +22,3 @@ document.addEventListener("turbo:load", () => {
     const dateValuesArr = Object.values(dateArr);
     const findDate = dateValuesArr.find((num) => num == date);
     dateOptions[findDate - 1].selected = true;
-})
