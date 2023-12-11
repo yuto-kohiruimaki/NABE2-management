@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
         end
         
         def after_sign_in_path_for(resource)
-            index_path
+            index_path(year: @abs_this_year, month: @abs_this_month)
         end
 
         def after_sign_out_path_for(resource)

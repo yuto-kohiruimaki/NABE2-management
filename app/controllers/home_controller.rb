@@ -13,8 +13,8 @@ class HomeController < ApplicationController
   
     @now = Date.today
     @wday = ["日", "月", "火", "水", "木", "金", "土"]
-    @this_year = @now.year
-    @this_month = @now.month + @x
+    @this_year = params[:year].to_i
+    @this_month = params[:month].to_i + @x
   
     if @this_month > 12
       @this_month -= 12
@@ -23,6 +23,21 @@ class HomeController < ApplicationController
       @this_month += 12
       @this_year -= 1
     end
+
+    def adjust_year_and_month(year, month)
+      while month > 12
+        month -= 12
+        year += 1
+      end
+      while month < 1
+        month += 12
+        year -= 1
+      end
+
+      [year, month]
+    end
+
+    @this_year, @this_month = adjust_year_and_month(@this_year, @this_month)
   
     @first_day = Date.new(@this_year, @this_month, 1)
     @last_day = @first_day.end_of_month

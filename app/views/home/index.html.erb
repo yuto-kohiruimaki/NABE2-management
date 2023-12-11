@@ -7,9 +7,9 @@
 <%= link_to new_post_path, class: "add-data",  method: :get do %><span>＋</span>スケジュールを追加<% end %>
 
 <div class="title2-container">
-<div class="change-month"><%= link_to '←', index_path(p: @x) %></div>
+<div class="change-month"><%= link_to '←', index_path(year: params[:year], month: params[:month], p: @x) %></div>
 <div class="title2"><%= @this_year %><span>年</span><%= @this_month %><span>月</span></div>
-<div class="change-month"><%= link_to '→', index_path(n: @x) %></div>
+<div class="change-month"><%= link_to '→', index_path(year: params[:year], month: params[:month], n: @x) %></div>
 </div>
 <div class="schedule-announcement"><span><%= @addedScheduleLength %></span> 件の追加</div>
 <div class="schedule-announcement-line"></div>

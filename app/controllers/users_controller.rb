@@ -34,6 +34,21 @@ class UsersController < ApplicationController
         @this_month += 12
         @this_year -= 1
       end
+
+      def adjust_year_and_month(year, month)
+        while month > 12
+          month -= 12
+          year += 1
+        end
+        while month < 1
+          month += 12
+          year -= 1
+        end
+        
+        [year, month]
+      end
+
+      @this_year, @this_month = adjust_year_and_month(@this_year, @this_month)
   
       @first_day = Date.new(@this_year, @this_month, 1)
       @last_day = @first_day.end_of_month

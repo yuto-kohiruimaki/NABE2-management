@@ -20,7 +20,7 @@
   <div class="container">
   <div class="wrapper">
       <header>
-      <%= link_to root_path, class: "logo" do %>
+      <%= link_to index_path(year: @abs_this_year, month: @abs_this_month), class: "logo" do %>
         <div class="logo" id="logo">NABE2</div>
       <% end %>
       <% if user_signed_in? %>
@@ -39,7 +39,7 @@
     <div class="menu" id="menu">
       <ul>
         <!-- <a href="home/top" id="top"><li>TOP</li></a> -->
-        <%= link_to index_path do %>
+        <%= link_to index_path(year: @abs_this_year, month: @abs_this_month) do %>
         <li>スケジュール</li>
         <% end %>
         <%= link_to new_time_path do %>
