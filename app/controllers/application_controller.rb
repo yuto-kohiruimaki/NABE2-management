@@ -2,9 +2,14 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
         before_action :get_date
         def get_date
-            now = Time.now
-            @abs_this_year = now.year
-            @abs_this_month = now.month
+            @now = Time.now.in_time_zone("Tokyo")
+            @abs_this_year = @now.year
+            @abs_this_month = @now.month
+
+            @day = @now.day
+            @hour = @now.hour
+            @minute = @now.min
+            @zone = @now.zone
         end
         
         def after_sign_in_path_for(resource)

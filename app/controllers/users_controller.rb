@@ -21,14 +21,6 @@ class UsersController < ApplicationController
 
       @wday = ["日", "月", "火", "水", "木", "金", "土"]
 
-      @now = Time.now + 9
-      @year = @now.year
-      @month = @now.month
-      @day = @now.day
-      @hour = @now.hour
-      @minute = @now.min
-      @zone = @now.zone
-
       if @this_month > 12
         @this_month -= 12
         @this_year += 1

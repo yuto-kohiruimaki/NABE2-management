@@ -317,9 +317,9 @@
     <% end %>
 </table>
 
-<% if @user.id == 1 %>
+<% if @user.id == 2 %>
 <%= @now %>
-<%= @month %>月<%= @day %>日<br>
+<%= @abs_this_month %>月<%= @day %>日<br>
 <%= @hour %>時<%= @minute %>分<br>
 timezone == <%= @zone %>
 <% end %>
