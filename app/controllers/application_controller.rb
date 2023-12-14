@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
         before_action :get_date
         def get_date
-            now = Date.today
+            now = Time.now
             @abs_this_year = now.year
             @abs_this_month = now.month
         end
