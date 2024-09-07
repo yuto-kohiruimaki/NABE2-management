@@ -235,6 +235,11 @@
             <option value="59">59</option>
         </select>
     </div>
+    <% if @timestamp.day_off %>
+        <div class="day-off"><input type="checkbox" name="day_off" value="1" id="day-off" checked /><label for="day-off">欠勤登録する</label></div>
+    <% else %>
+        <div class="day-off"><input type="checkbox" name="day_off" value="1" id="day-off" /><label for="day-off">欠勤登録する</label></div>
+    <% end %>
         <div class="times-desc"><textarea name="desc" placeholder="備考"><%= @timestamp.desc %></textarea></div>
         <div class="times-submit"><input type="submit" value="修正"></div>
         <% end %>

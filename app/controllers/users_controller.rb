@@ -102,7 +102,7 @@ class UsersController < ApplicationController
         end
 
         @addedSchedule = Post.where(year: @year, month: @month)
-        @addedTimestamp = Timestamp.where(year: @year, month: @month)
+        @addedTimestamp = Timestamp.where(year: @year, month: @month, day_off: [false, nil]) # アップデート前はday_offの値を持たないのでnilを許容
     end
 end
   
