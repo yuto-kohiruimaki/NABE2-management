@@ -102,11 +102,7 @@ class UsersController < ApplicationController
         end
 
         @addedSchedule = Post.where(year: @year, month: @month)
-        if ActiveRecord::Base.connection.column_exists?(:timestamps, :day_off)
-          @addedTimestamp = Timestamp.where(year: @year, month: @month, day_off: true)
-        else
-          @addedTimestamp = Timestamp.where(year: @year, month: @month)
-        end
+        @addedTimestamp = Timestamp.where(year: @year, month: @month)
     end
 end
   
