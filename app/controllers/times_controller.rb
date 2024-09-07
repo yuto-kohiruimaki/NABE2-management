@@ -55,7 +55,7 @@ class TimesController < ApplicationController
         @desc = @timestamp.desc
         @userId = @timestamp.user_id
 
-        if ActiveRecord::Base.connection.column_exists?(:timestamp, :day_off)
+        if ActiveRecord::Base.connection.column_exists?(:timestamps, :day_off)
           @is_day_off = @timestamp.day_off
         else
           @is_day_off = false
