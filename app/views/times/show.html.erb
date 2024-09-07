@@ -2,6 +2,9 @@
     <div class="times-show-title">打刻履歴</div>
     <div class="times-show-name"><%= @userName %><span>さん</span></div>
     <div class="times-show-date"><%= @month %>月<%= @date %>日</div>
+    <% if @day_off %>
+        <div style="font-size: 1.4rem; text-align: center; margin-top: 1rem;"><span style="color: red; font-size: 12px">※</span>欠勤登録済み</div>
+    <% end %>
     <div class="times-show-time-container">
         <div class="times-show-time">
         <span>開始時刻</span><br>

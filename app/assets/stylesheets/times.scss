@@ -69,6 +69,16 @@
     font-size: 2rem;
 }
 
+.day-off {
+    margin: auto;
+    margin-top: 2rem;
+    width: 50%;
+    text-align: left;
+    @media screen and (max-width:800px) {
+        width: 90%;
+    }
+}
+
 .times-desc {
     margin-top: 2rem;
     textarea {
