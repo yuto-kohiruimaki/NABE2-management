@@ -187,7 +187,11 @@
                     <p class="to"></p>
                     <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
                     </div>
-                    <div class="circle"></div>
+                    <% if timestamp.day_off %>
+                        <div class="cross">×</div>
+                    <% else %>
+                        <div class="circle"></div>
+                    <% end %>
                     <% end %>
                 <% end %>
                 </div>
