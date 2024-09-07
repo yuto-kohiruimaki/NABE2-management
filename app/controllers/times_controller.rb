@@ -12,7 +12,7 @@ class TimesController < ApplicationController
     end
   
     def create
-      timestamp = Timestamp.new(name:params[:name], place:params[:place], year: @abs_this_year, month:params[:month], date:params[:date], start_time_h:params[:start_time_h], start_time_m:params[:start_time_m], finish_time_h:params[:finish_time_h], finish_time_m:params[:finish_time_m], desc:params[:desc], user_id:current_user.id,)
+      timestamp = Timestamp.new(name:params[:name], place:params[:place], year: @abs_this_year, month:params[:month], date:params[:date], start_time_h:params[:start_time_h], start_time_m:params[:start_time_m], finish_time_h:params[:finish_time_h], finish_time_m:params[:finish_time_m], day_off:params[:day_off], desc:params[:desc], user_id:current_user.id,)
       timestamp.save
       redirect_to user_path(id: current_user.id, year: @abs_this_year, month: @abs_this_month)
     end
@@ -54,6 +54,12 @@ class TimesController < ApplicationController
         @finish_time_m = @timestamp.finish_time_m
         @desc = @timestamp.desc
         @userId = @timestamp.user_id
+
+        if ActiveRecord::Base.connection.column_exists?(:timestamp, :day_off)
+          @is_day_off = @timestamp.day_off
+        else
+          @is_day_off = false
+        end
     end
 
     private
