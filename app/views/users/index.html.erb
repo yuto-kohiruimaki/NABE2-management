@@ -6,7 +6,7 @@
 </div>
 <div class="users-index">
     <% @users.each do |user| %>
-    <% if user.id >= 3 %>
+    <% if user.id >= 3 && user.id != 6 %>
     <div class="index-content">
         <div class="index-content-name"><span><%= link_to "#{user.name}", user_path(id: user.id, year: @year, month: @month)%> さん</span></div>
             <div class="index-content-container">
