@@ -23,6 +23,6 @@
     <div class="times-show-desc"><%= @desc %></div>
     <% end %>
     <% if @userId == current_user.id || current_user.id == 3 %>
-    <%= link_to edit_time_path(id: @timestamp.id, month: @timestamp.month, date: @timestamp.date), class: "backto" do %>修正画面へ<% end %>
+    <%= link_to edit_time_path(id: @timestamp.id, month: @timestamp.work_date&.month, date: @timestamp.work_date&.day), class: "backto" do %>修正画面へ<% end %>
     <% end %>
 </div>

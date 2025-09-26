@@ -184,9 +184,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>
@@ -212,9 +212,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>
@@ -240,9 +240,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>
@@ -268,9 +268,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>
@@ -297,9 +297,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>
@@ -327,9 +327,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>

@@ -7,15 +7,24 @@ class PostsController < ApplicationController
     end
 
     def create
-        post = Post.new(year:params[:year], month:params[:month], date:params[:date], place:params[:place], name:params[:name], desc:params[:desc], user_id:current_user.id)
+        # 日付を作成
+        post_date = Date.new(params[:year].to_i, params[:month].to_i, params[:date].to_i)
+        
+        post = Post.new(
+            post_date: post_date,
+            place: params[:place],
+            name: params[:name],
+            desc: params[:desc],
+            user_id: current_user.id
+        )
         post.save
         redirect_to index_path
     end
 
     def edit
         @post = Post.find_by(id: params[:id])
-        @month = @post.month
-        @date = @post.date
+        @month = @post.post_date&.month
+        @date = @post.post_date&.day
     end
 
     def update
@@ -35,8 +44,8 @@ class PostsController < ApplicationController
 
     def show
         @post = Post.find(params[:id])
-        @month = @post.month
-        @date = @post.date
+        @month = @post.post_date&.month
+        @date = @post.post_date&.day
         @place = @post.place
         @name = @post.name
         @desc = @post.desc

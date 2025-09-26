@@ -68,13 +68,15 @@ class UsersController < ApplicationController
       @posts = {}
       
       (@first_day..@last_day).each do |day|
-        @posts[day.day] = Post.where(user_id: @user.id, year: @this_year, month: @this_month, date: day.day)
+        date = Date.new(@this_year, @this_month, day.day)
+        @posts[day.day] = Post.where(user_id: @user.id, post_date: date)
       end
   
       @timestamps = {}
 
       (@first_day..@last_day).each do |day|
-        @timestamps[day.day] = Timestamp.where(user_id: @user.id, year: @this_year, month: @this_month, date: day.day)
+        date = Date.new(@this_year, @this_month, day.day)
+        @timestamps[day.day] = Timestamp.where(user_id: @user.id, work_date: date)
       end
   
     end
@@ -101,8 +103,12 @@ class UsersController < ApplicationController
           @year -= 1
         end
 
-        @addedSchedule = Post.where(year: @year, month: @month)
-        @addedTimestamp = Timestamp.where(year: @year, month: @month, day_off: [false, nil]) # アップデート前はday_offの値を持たないのでnilを許容
+        # 月の開始日と終了日を計算
+        start_date = Date.new(@year, @month, 1)
+        end_date = start_date.end_of_month
+        
+        @addedSchedule = Post.where(post_date: start_date..end_date)
+        @addedTimestamp = Timestamp.where(work_date: start_date..end_date, day_off: [false, nil]) # アップデート前はday_offの値を持たないのでnilを許容
     end
 end
   

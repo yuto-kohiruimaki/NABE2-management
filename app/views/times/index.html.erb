@@ -5,10 +5,10 @@
     <div class="timestamp">
         <div class="timestamp-detail">
             <div class="timestamp-content"><span><%= timestamp.name %></span></div>
-            <div class="timestamp-content"><%= timestamp.month %>月<%= timestamp.date %>日</div>
+            <div class="timestamp-content"><%= timestamp.work_date&.month %>月<%= timestamp.work_date&.day %>日</div>
             <div class="timestamp-content"><%= timestamp.place %></div>
-            <div class="timestamp-content">開始時刻：<%= timestamp.start_time_h %>:<%= timestamp.start_time_m %></div>
-            <div class="timestamp-content">終了時刻：<%= timestamp.finish_time_h %>:<%= timestamp.finish_time_m %></div>
+            <div class="timestamp-content">開始時刻：<%= timestamp.start_time&.strftime("%H:%M") %></div>
+            <div class="timestamp-content">終了時刻：<%= timestamp.finish_time&.strftime("%H:%M") %></div>
             <% if user_signed_in? && timestamp.user_id == current_user.id %>
             <%= link_to( "/times/#{timestamp.id}/edit") do %><p class="fix-content-time">再入力</p><% end %>
             <% end %>

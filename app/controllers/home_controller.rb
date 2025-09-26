@@ -45,9 +45,13 @@ class HomeController < ApplicationController
     @posts = {}
   
     (@first_day..@last_day).each do |day|
-      @posts[day.day] = Post.where(year: @this_year, month: @this_month, date: day.day)
+      date = Date.new(@this_year, @this_month, day.day)
+      @posts[day.day] = Post.where(post_date: date)
     end
 
-    @addedScheduleLength = Post.where(year: @this_year, month: @this_month).length
+    # 月の開始日と終了日を計算
+    start_date = Date.new(@this_year, @this_month, 1)
+    end_date = start_date.end_of_month
+    @addedScheduleLength = Post.where(post_date: start_date..end_date).length
   end
 end
