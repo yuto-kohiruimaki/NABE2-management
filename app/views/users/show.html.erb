@@ -5,159 +5,18 @@
 <div class="change-month go-next"><%= link_to '→', user_path(id: params[:id], year: params[:year], month: params[:month], n: @x) %></div>
 </div>
 
-<%= link_to new_post_path, class: "add-data", method: :get do %><span>＋</span>スケジュールを追加<% end %>
-
-<div class="calender-title">-勤務予定-</div>
-
-<table class="mypage-calender">
-    <tr class="mypage-week">
-      <td>日</td>
-      <td>月</td>
-      <td>火</td>
-      <td>水</td>
-      <td>木</td>
-      <td>金</td>
-      <td>土</td>
-    </tr>
-    <tr>
-    <% 7.times do |x| %>
-    <td class="<%= 'holiday' if @week_period.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
-    <% @week_period.each do |period| %>
-        <% if x == period.wday %>
-        <span><%= period.day %></span>
-        <div class="mypage-details">
-            <% @posts[period.day].each do |post| %>
-            <%= link_to("/posts/#{post.id}") do %>
-              <div class="content-detail">
-                <p><span>現場名：</span><%= post.place %></p>
-                <p><span>備考：</span><%= post.desc %></p>
-              </div>
-              <div class="circle"></div>
-            <% end %>
-            <% end %>
-        </div>
-        <% end %>
-    <% end %>
-    </td>
-    <% end %>
-    </tr>
-    <tr>
-    <% 7.times do |x| %>
-    <td class="<%= 'holiday' if @week_period2.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
-    <% @week_period2.each do |period| %>
-        <% if x == period.wday %>
-        <span><%= period.day %></span>
-        <div class="mypage-details">
-            <% @posts[period.day].each do |post| %>
-            <%= link_to("/posts/#{post.id}") do %>
-              <div class="content-detail">
-                <p><span>現場名：</span><%= post.place %></p>
-                <p><span>備考：</span><%= post.desc %></p>
-              </div>
-              <div class="circle"></div>
-            <% end %>
-            <% end %>
-        </div>
-        <% end %>
-    <% end %>
-    </td>
-    <% end %>
-    </tr>
-    <tr>
-    <% 7.times do |x| %>
-    <td class="<%= 'holiday' if @week_period3.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
-    <% @week_period3.each do |period| %>
-        <% if x == period.wday %>
-        <span><%= period.day %></span>
-        <div class="mypage-details">
-            <% @posts[period.day].each do |post| %>
-            <%= link_to("/posts/#{post.id}") do %>
-              <div class="content-detail">
-                <p><span>現場名：</span><%= post.place %></p>
-                <p><span>備考：</span><%= post.desc %></p>
-              </div>
-              <div class="circle"></div>
-            <% end %>
-            <% end %>
-        </div>
-        <% end %>
-    <% end %>
-    </td>
-    <% end %>
-    </tr>
-    <tr>
-    <% 7.times do |x| %>
-    <td class="<%= 'holiday' if @week_period4.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
-    <% @week_period4.each do |period| %>
-        <% if x == period.wday %>
-        <span><%= period.day %></span>
-        <div class="mypage-details">
-            <% @posts[period.day].each do |post| %>
-            <%= link_to("/posts/#{post.id}") do %>
-              <div class="content-detail">
-                <p><span>現場名：</span><%= post.place %></p>
-                <p><span>備考：</span><%= post.desc %></p>
-              </div>
-              <div class="circle"></div>
-            <% end %>
-            <% end %>
-        </div>
-        <% end %>
-    <% end %>
-    </td>
-    <% end %>
-    </tr>
-    <tr>
-    <% 7.times do |x| %>
-    <td class="<%= 'holiday' if @week_period5.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
-    <% @week_period5.each do |period| %>
-        <% if x == period.wday %>
-        <% if period.day >= 8 %>
-        <span><%= period.day %></span>
-        <div class="mypage-details">
-            <% @posts[period.day].each do |post| %>
-            <%= link_to("/posts/#{post.id}") do %>
-              <div class="content-detail">
-                <p><span>現場名：</span><%= post.place %></p>
-                <p><span>備考：</span><%= post.desc %></p>
-              </div>
-              <div class="circle"></div>
-            <% end %>
-            <% end %>
-        </div>
-        <% end %>
-        <% end %>
-    <% end %>
-    </td>
-    <% end %>
-    </tr>
-    <% if (@wlast_day5 + 1).month == @this_month %>
-    <tr>
-    <% 7.times do |x| %>
-        <td class="<%= 'holiday' if @week_period6.any? { |period| period.wday == x && HolidayJapan.check(period) } %>">
-        <% @week_period6.each do |period| %>
-        <% if x == period.wday && period.day > 6 %>
-        <span><%= period.day %></span>
-            <div class="mypage-details">
-                <% @posts[period.day].each do |post| %>
-                    <%= link_to("/posts/#{post.id}") do %>
-                    <div class="content-detail">
-                    <p><span>現場名：</span><%= post.place %></p>
-                    <p><span>備考：</span><%= post.desc %></p>
-                    </div>
-                    <div class="circle"></div>
-                    <% end %>
-                <% end %>
-            </div>
-        <% end %>
-        <% end %>
-        </td>
-    <% end %>
-    </tr>
-    <% end %>
-</table>
-
-<p class="separating-border"></p>
+<div class="monthly-summary">
+  <div class="monthly-summary__item">
+    <span class="monthly-summary__label">規定勤務日数</span>
+    <span class="monthly-summary__value">
+      <%= @planned_working_days.present? ? "#{@planned_working_days}日" : '未設定' %>
+    </span>
+  </div>
+  <div class="monthly-summary__item">
+    <span class="monthly-summary__label">打刻回数</span>
+    <span class="monthly-summary__value"><%= @monthly_timestamp_count %>件</span>
+  </div>
+</div>
 
 <%= link_to new_time_path, class: "add-data" do %><span>＋</span>打刻する<% end %>
 
@@ -184,9 +43,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>
@@ -212,9 +71,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>
@@ -240,9 +99,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>
@@ -268,9 +127,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>
@@ -297,9 +156,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>
@@ -327,9 +186,9 @@
                     <%= link_to("/times/#{timestamp.id}") do %>
                     <div class="content-detail time">
                     <p><%= timestamp.place %></p>
-                    <p><%= timestamp.start_time_h %>：<%= timestamp.start_time_m %></p>
+                    <p><%= timestamp.start_time&.strftime("%H:%M") %></p>
                     <p class="to"></p>
-                    <p><%= timestamp.finish_time_h %>：<%= timestamp.finish_time_m %></p>
+                    <p><%= timestamp.finish_time&.strftime("%H:%M") %></p>
                     </div>
                     <% if timestamp.day_off %>
                         <div class="cross">×</div>

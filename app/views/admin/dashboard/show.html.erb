@@ -1,0 +1,17 @@
+<div class="admin-users-menu">
+  <div class="users-index-title admin-users-menu__title">管理画面</div>
+  <ul class="admin-users-menu__list">
+    <li class="admin-users-menu__item">
+      <%= link_to admin_work_plans_path(year: @abs_this_year, month: @abs_this_month), class: 'admin-users-menu__link' do %>
+        <div class="admin-users-menu__name">規定勤務日数を設定する</div>
+        <p class="admin-users-menu__description">月ごとの規定日数と勤務時間を更新</p>
+      <% end %>
+    </li>
+    <li class="admin-users-menu__item">
+      <%= link_to admin_users_path, class: 'admin-users-menu__link' do %>
+        <div class="admin-users-menu__name">ユーザー管理</div>
+        <p class="admin-users-menu__description">従業員と退職者を一覧で確認</p>
+      <% end %>
+    </li>
+  </ul>
+</div>

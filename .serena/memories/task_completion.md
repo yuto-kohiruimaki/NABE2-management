@@ -1,0 +1,3 @@
+- After changes, run `bin/rails test` (or narrow paths) locally; ensure migrations run (`bin/rails db:migrate RAILS_ENV=test`) when schema changes.
+- Update docs like README/AGENTS.md if workflows or commands shift.
+- Surface manual verification steps in PR descriptions (affected URLs, credentials, screenshots for UI).

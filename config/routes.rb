@@ -12,6 +12,16 @@ Rails.application.routes.draw do
 
   resources :posts
 
+  namespace :admin do
+    resources :users, only: :index do
+      patch :toggle_status, on: :member
+    end
+    resources :work_plans, only: [:index, :create]
+    root to: 'dashboard#show', as: :root
+  end
+
+  get 'admin', to: 'admin/dashboard#show', as: :admin
+
   get 'index' => 'home#index'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

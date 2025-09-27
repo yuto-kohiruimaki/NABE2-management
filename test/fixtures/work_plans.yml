@@ -1,0 +1,13 @@
+one:
+  user: one
+  period: 2024-09-01
+  planned_working_days: 20
+  planned_working_hours: 160
+  created_by: two
+
+two:
+  user: two
+  period: 2024-09-01
+  planned_working_days: 18
+  planned_working_hours: 144
+  created_by: two

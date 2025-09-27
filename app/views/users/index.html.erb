@@ -1,27 +1,26 @@
 <div class="users-index-title">ユーザー一覧</div>
 <div class="title2-container">
-<div class="change-month"><%= link_to '←', users_path(p: @x) %></div>
-<div class="title2"><%= @year %><span>年</span><%= @month %><span>月</span></div>
-<div class="change-month"><%= link_to '→', users_path(n: @x) %></div>
+  <div class="change-month"><%= link_to '←', users_path(p: @x) %></div>
+  <div class="title2"><%= @year %><span>年</span><%= @month %><span>月</span></div>
+  <div class="change-month"><%= link_to '→', users_path(n: @x) %></div>
 </div>
 <div class="users-index">
-    <% @users.each do |user| %>
-    <% if user.id >= 3 && user.id != 6 %>
+  <% @users.each do |user| %>
+    <% next if user.is_deleted? %>
     <div class="index-content">
-        <div class="index-content-name"><span><%= link_to "#{user.name}", user_path(id: user.id, year: @year, month: @month)%> さん</span></div>
-            <div class="index-content-container">
-            <div class="content">
-            <p>スケジュール</p>
-            <p class="length"><%= @addedSchedule.where(user_id: user.id).length %></p>
-            <p>件</p>
-            </div>
-            <div class="content">
+      <div class="index-content-name"><span><%= link_to "#{user.name}", user_path(id: user.id, year: @year, month: @month) %> さん</span></div>
+      <div class="index-content-container">
+        <div class="content">
+            <p>規定勤務日数</p>
+            <p class="length"><%= @work_plans[user.id]&.planned_working_days || '未設定' %></p>
+            <p>日</p>
+          </div>
+          <div class="content">
             <p>打刻回数</p>
             <p class="length"><%= @addedTimestamp.where(user_id: user.id).length %></p>
             <p>件</p>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
     <% end %>
-    <% end %>
-</div>
+  </div>
