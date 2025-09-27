@@ -12,34 +12,36 @@
     <%= hidden_field_tag :year, @year %>
     <%= hidden_field_tag :month, @month %>
 
-    <table class="work-plans__table">
-      <thead>
-        <tr>
-          <th>社員名</th>
-          <th>規定勤務日数</th>
-          <th>規定勤務時間（時間）</th>
-          <th>メモ</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each do |user| %>
-          <% plan = @work_plans[user.id] %>
+    <div class="work-plans__table-wrapper">
+      <table class="work-plans__table">
+        <thead>
           <tr>
-            <td><%= user.name %></td>
-            <td>
-              <%= hidden_field_tag "work_plans[#{user.id}][user_id]", user.id %>
-              <%= number_field_tag "work_plans[#{user.id}][planned_working_days]", plan&.planned_working_days, min: 0, class: 'work-plans__input-number' %>
-            </td>
-            <td>
-              <%= number_field_tag "work_plans[#{user.id}][planned_working_hours]", plan&.planned_working_hours, min: 0, class: 'work-plans__input-number' %>
-            </td>
-            <td>
-              <%= text_field_tag "work_plans[#{user.id}][notes]", plan&.notes, class: 'work-plans__input-text' %>
-            </td>
+            <th>社員名</th>
+            <th>規定勤務日数</th>
+            <th>規定勤務時間（時間）</th>
+            <th>メモ</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <% plan = @work_plans[user.id] %>
+            <tr>
+              <td><%= user.name %></td>
+              <td>
+                <%= hidden_field_tag "work_plans[#{user.id}][user_id]", user.id %>
+                <%= number_field_tag "work_plans[#{user.id}][planned_working_days]", plan&.planned_working_days, min: 0, class: 'work-plans__input-number' %>
+              </td>
+              <td>
+                <%= number_field_tag "work_plans[#{user.id}][planned_working_hours]", plan&.planned_working_hours, min: 0, class: 'work-plans__input-number' %>
+              </td>
+              <td>
+                <%= text_field_tag "work_plans[#{user.id}][notes]", plan&.notes, class: 'work-plans__input-text' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
     <div class="work-plans__actions">
       <%= submit_tag '保存する', class: 'work-plans__submit' %>
