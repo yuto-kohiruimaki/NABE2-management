@@ -1,0 +1,3 @@
+- Rails 8 (Ruby 3.4) application for managing employee schedules and time tracking. Core domain models are users, posts (schedule entries), and timestamps (work logs).
+- Uses Devise for authentication, Minitest for testing, importmap-rails and stimulus for frontend assets. Postgres in production, SQLite in development/test.
+- App conventions follow standard Rails structure with controllers under `app/controllers`, views per resource, and assets/JS under `app/assets` and `app/javascript`. Additional utilities under `lib/`.

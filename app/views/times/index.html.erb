@@ -9,7 +9,7 @@
             <div class="timestamp-content"><%= timestamp.place %></div>
             <div class="timestamp-content">開始時刻：<%= timestamp.start_time&.strftime("%H:%M") %></div>
             <div class="timestamp-content">終了時刻：<%= timestamp.finish_time&.strftime("%H:%M") %></div>
-            <% if user_signed_in? && timestamp.user_id == current_user.id %>
+            <% if user_signed_in? && (current_user.admin? || timestamp.user_id == current_user.id) %>
             <%= link_to( "/times/#{timestamp.id}/edit") do %><p class="fix-content-time">再入力</p><% end %>
             <% end %>
         </div>

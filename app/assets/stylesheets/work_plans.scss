@@ -1,0 +1,114 @@
+.work-plans {
+  margin-top: 2rem;
+
+  &__header {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-size: 2.4rem;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.6rem;
+    margin-top: 0.8rem;
+    justify-content: flex-end;
+  }
+
+  &__nav-link {
+    color: inherit;
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #444;
+    border-radius: 0.4rem;
+
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+
+  &__form {
+    background-color: #1f1f1f;
+    padding: 1.5rem;
+    border-radius: 0.8rem;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.4rem;
+
+    th,
+    td {
+      padding: 0.8rem;
+      border-bottom: 1px solid #333;
+      text-align: left;
+    }
+
+    th {
+      background-color: #202020;
+      font-weight: normal;
+    }
+  }
+
+  &__input-number {
+    width: 8rem;
+    padding: 0.4rem;
+    background-color: #111;
+    border: 1px solid #444;
+    border-radius: 0.4rem;
+    color: inherit;
+  }
+
+  &__input-text {
+    width: 100%;
+    padding: 0.4rem;
+    background-color: #111;
+    border: 1px solid #444;
+    border-radius: 0.4rem;
+    color: inherit;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+  }
+
+  &__submit {
+    background-color: #007700;
+    border: none;
+    color: #fff;
+    padding: 0.8rem 1.6rem;
+    font-size: 1.6rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+}
+
+.work-plans-link {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+
+  &__button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.4rem;
+    background-color: #0055aa;
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+}

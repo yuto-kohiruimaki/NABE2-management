@@ -1,9 +1,12 @@
 class TimesController < ApplicationController
-    before_action :authenticate_user!
     before_action :get_abs_date, only: [:create, :update, :destroy]
+    before_action :set_timestamp, only: [:edit, :update, :destroy, :show]
+    before_action :authorize_timestamp!, only: [:edit, :update, :destroy, :show]
   
     def index
-      @timestamps = Timestamp.all.order(updated_at: "DESC")
+      scope = Timestamp.all
+      scope = scope.where(user_id: current_user.id) unless current_user.admin?
+      @timestamps = scope.order(updated_at: "DESC")
     end
   
     def new
@@ -46,12 +49,9 @@ class TimesController < ApplicationController
     end
   
     def edit
-      @timestamp = Timestamp.find_by(id: params[:id])
     end
   
     def update
-      @timestamp = Timestamp.find_by(id: params[:id])
-      
       # 日付を作成
       work_date = Date.new(@abs_this_year, params[:month].to_i, params[:date].to_i)
       
@@ -79,17 +79,15 @@ class TimesController < ApplicationController
       @timestamp.day_off = params[:day_off]
       @timestamp.desc = params[:desc]
       @timestamp.save
-      redirect_to user_path(id: current_user.id, year: @abs_this_year, month: @abs_this_month)
+      redirect_to user_path(id: owner_user_id, year: @abs_this_year, month: @abs_this_month)
     end
   
     def destroy
-      timestamp_post = Timestamp.find_by(id: params[:id])
-      timestamp_post.destroy
-      redirect_to user_path(id: current_user.id, year: @abs_this_year, month: @abs_this_month)
+      @timestamp.destroy
+      redirect_to user_path(id: owner_user_id, year: @abs_this_year, month: @abs_this_month)
     end
 
     def show
-        @timestamp = Timestamp.find(params[:id])
         @userName = @timestamp.name
         @place = @timestamp.place
         @month = @timestamp.work_date&.month
@@ -110,6 +108,23 @@ class TimesController < ApplicationController
       now = Date.today
       @abs_this_year = now.year
       @abs_this_month = now.month
+    end
+
+    def set_timestamp
+      @timestamp = Timestamp.find_by(id: params[:id])
+      return if @timestamp.present?
+
+      return redirect_to index_path(year: @abs_this_year, month: @abs_this_month), alert: "対象のデータが見つかりません。"
+    end
+
+    def authorize_timestamp!
+      return if current_user.admin? || @timestamp.user_id == current_user.id
+
+      return redirect_to index_path(year: @abs_this_year, month: @abs_this_month), alert: "権限がありません。"
+    end
+
+    def owner_user_id
+      current_user.admin? ? @timestamp.user_id : current_user.id
     end
 end
   

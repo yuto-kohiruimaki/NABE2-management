@@ -1,0 +1,6 @@
+- `bin/setup` – install gems, prepare database, clear logs/tmp.
+- `bin/rails server` – run the dev server on localhost:3000.
+- `bin/rails db:migrate` / `bin/rails db:rollback` – apply or revert database schema changes.
+- `bin/rails test` – execute the full Minitest suite; append paths (e.g., `bin/rails test test/models/user_test.rb`) to run subsets.
+- `bin/rails assets:precompile` – build production assets (also run in Render build script).
+- `bundle exec rubocop` – not configured in repo (no dotfile); rely on Ruby two-space style manually.

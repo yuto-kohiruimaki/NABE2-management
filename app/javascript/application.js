@@ -1,6 +1,7 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 // import "@hotwired/turbo-rails"
 import "controllers"
+import "admin-users"
 
 
 // menu
@@ -13,6 +14,41 @@ hmb.addEventListener('click', () => {
     hmb.classList.toggle('active');
     menu.classList.toggle('active');
 });
+
+const signOutButton = document.getElementById('menu-signout');
+const signOutModal = document.getElementById('signout-modal');
+const signOutForm = document.getElementById('sign-out-form');
+
+if (signOutButton && signOutModal && signOutForm) {
+    const dismissTriggers = signOutModal.querySelectorAll('[data-signout-dismiss]');
+    const confirmTrigger = signOutModal.querySelector('[data-signout-confirm]');
+
+    const openSignOutModal = () => {
+        signOutModal.classList.add('is-open');
+        signOutModal.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeSignOutModal = () => {
+        signOutModal.classList.remove('is-open');
+        signOutModal.setAttribute('aria-hidden', 'true');
+    };
+
+    signOutButton.addEventListener('click', openSignOutModal);
+
+    dismissTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', closeSignOutModal);
+    });
+
+    confirmTrigger?.addEventListener('click', () => {
+        signOutForm.requestSubmit();
+    });
+
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && signOutModal.classList.contains('is-open')) {
+            closeSignOutModal();
+        }
+    });
+}
 
 const currentUrl = new URLSearchParams(window.location.search);
 let paramsYear = currentUrl.get("year");

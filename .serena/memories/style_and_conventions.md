@@ -1,0 +1,4 @@
+- Follow idiomatic Rails conventions: two-space indentation, snake_case for methods/variables, CamelCase for classes/modules.
+- Keep controllers lean and move shared logic to helpers, concerns, or POROs (`app/services`, `app/controllers/concerns`).
+- Views primarily use ERB templates; keep presentational logic in helpers when possible.
+- No automated linter/formatter configured; maintain manual consistency (≈100 char line length).

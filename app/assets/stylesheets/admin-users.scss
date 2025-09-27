@@ -1,0 +1,176 @@
+.admin-users-table-container {
+  margin-top: 2.4rem;
+  overflow-x: auto;
+}
+
+.admin-users-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  background-color: #1f1f1f;
+  border: 1px solid #2d2d2d;
+  border-radius: 1.2rem;
+  overflow: hidden;
+
+  thead {
+    background-color: #262626;
+
+    th {
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 1.2rem 1.6rem;
+      text-align: left;
+      color: #f0f0f0;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #2d2d2d;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__row--inactive {
+    background-color: rgba(120, 35, 35, 0.15);
+  }
+
+  &__cell {
+    padding: 1.4rem 1.6rem;
+    font-size: 1.5rem;
+    color: #d9d9d9;
+    vertical-align: middle;
+
+    &--number {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    &--status {
+      text-align: center;
+    }
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: #ffffff;
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+
+    &--admin {
+      background-color: rgba(0, 102, 204, 0.22);
+      color: #8ac8ff;
+    }
+
+    &--deleted {
+      background-color: rgba(178, 34, 34, 0.25);
+      color: #ff9b9b;
+    }
+  }
+
+  &__status-button {
+    min-width: 8rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-size: 1.4rem;
+    cursor: pointer;
+    background-color: rgba(0, 128, 64, 0.2);
+    color: #9ef0b1;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+
+    &.is-inactive {
+      background-color: rgba(128, 32, 32, 0.3);
+      color: #ff9b9b;
+    }
+  }
+}
+
+.status-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+
+  &.is-open {
+    display: flex;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+
+  &__dialog {
+    position: relative;
+    width: 90vw;
+    max-width: 420px;
+    background-color: #1e1e1e;
+    border-radius: 1.2rem;
+    padding: 2.4rem;
+    box-shadow: 0 2.4rem 4rem rgba(0, 0, 0, 0.45);
+    border: 1px solid #333;
+    z-index: 1;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1.4rem;
+    color: #f3f3f3;
+  }
+
+  &__message {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: #d0d0d0;
+    margin-bottom: 2.4rem;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  &__button {
+    min-width: 7rem;
+    padding: 0.6rem 1.6rem;
+    border-radius: 0.8rem;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+
+    &--cancel {
+      background-color: #2a2a2a;
+      color: #cfcfcf;
+    }
+
+    &--primary {
+      background-color: #0a6b0a;
+      color: #f0fff0;
+    }
+  }
+}

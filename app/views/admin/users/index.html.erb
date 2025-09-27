@@ -1,0 +1,75 @@
+<div class="users-index-title">ユーザー管理</div>
+<div class="title2-container">
+  <div class="change-month"><%= link_to '←', admin_users_path(p: @x, year: @year, month: @month) %></div>
+  <div class="title2"><%= @year %><span>年</span><%= @month %><span>月</span></div>
+  <div class="change-month"><%= link_to '→', admin_users_path(n: @x, year: @year, month: @month) %></div>
+</div>
+
+<div class="admin-users-table-container">
+  <table class="admin-users-table">
+    <thead>
+      <tr>
+        <th>社員名</th>
+        <th>規定勤務日数</th>
+        <th>打刻回数</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <% planned_days = @work_plans[user.id]&.planned_working_days %>
+        <% timestamp_count = @addedTimestamp.where(user_id: user.id).length %>
+        <% inactive = user.is_deleted? %>
+        <tr class="admin-users-table__row <%= 'admin-users-table__row--inactive' if inactive %>">
+          <td class="admin-users-table__cell admin-users-table__cell--name">
+            <div class="admin-users-table__name">
+              <%= link_to user.name, user_path(id: user.id, year: @year, month: @month), class: 'admin-users-table__link' %>
+              <% if user.admin? %>
+                <span class="admin-users-table__badge admin-users-table__badge--admin">管理者</span>
+              <% end %>
+              <% if inactive %>
+                <span class="admin-users-table__badge admin-users-table__badge--deleted">無効</span>
+              <% end %>
+            </div>
+          </td>
+          <td class="admin-users-table__cell admin-users-table__cell--number"><%= planned_days || '未設定' %></td>
+          <td class="admin-users-table__cell admin-users-table__cell--number"><%= timestamp_count %></td>
+          <td class="admin-users-table__cell admin-users-table__cell--status">
+            <button
+              type="button"
+              class="admin-users-table__status-button <%= inactive ? 'is-inactive' : 'is-active' %>"
+              data-status-toggle="true"
+              data-user-id="<%= user.id %>"
+              data-user-name="<%= user.name %>"
+              data-user-status="<%= inactive ? 'inactive' : 'active' %>"
+              data-toggle-url="<%= toggle_status_admin_user_path(user) %>"
+            >
+              <%= inactive ? '無効' : '有効' %>
+            </button>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="status-modal" class="status-modal" aria-hidden="true">
+  <div class="status-modal__overlay" data-modal-dismiss></div>
+  <div class="status-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="status-modal-title">
+    <h2 id="status-modal-title" class="status-modal__title">ステータス変更</h2>
+    <p class="status-modal__message" data-modal-message>
+      
+    </p>
+    <form method="post" data-modal-form>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input type="hidden" name="_method" value="patch">
+      <input type="hidden" name="user[is_deleted]" data-modal-input>
+      <input type="hidden" name="year" value="<%= @year %>">
+      <input type="hidden" name="month" value="<%= @month %>">
+      <div class="status-modal__actions">
+        <button type="button" class="status-modal__button status-modal__button--cancel" data-modal-dismiss>キャンセル</button>
+        <button type="submit" class="status-modal__button status-modal__button--primary" data-modal-submit>変更する</button>
+      </div>
+    </form>
+  </div>
+</div>

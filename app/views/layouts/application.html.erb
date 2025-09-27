@@ -20,7 +20,7 @@
   <div class="container">
   <div class="wrapper">
       <header>
-      <%= link_to index_path(year: @abs_this_year, month: @abs_this_month), class: "logo" do %>
+      <%= link_to users_path(year: @abs_this_year, month: @abs_this_month), class: "logo" do %>
         <div class="logo" id="logo">NABE2</div>
       <% end %>
       <% if user_signed_in? %>
@@ -39,21 +39,46 @@
     <div class="menu" id="menu">
       <ul>
         <!-- <a href="home/top" id="top"><li>TOP</li></a> -->
-        <%= link_to index_path(year: @abs_this_year, month: @abs_this_month) do %>
-        <li>スケジュール</li>
-        <% end %>
         <%= link_to new_time_path do %>
         <li>打刻</li>
         <% end %>
         <%= link_to users_path do %>
         <li>ユーザー一覧</li>
         <% end %>
-        <%= link_to destroy_user_session_path method: :delete do %>
-        <li>SIGN OUT</li>
-        <% end %>
         <a href="mailto:march09yuuto@gmail.com?subject=NABE2アプリ"><li>バグ報告・ご要望</li></a>
       </ul>
+      <% if current_user&.admin? %>
+        <%= link_to '管理画面', admin_path, class: 'menu-admin-link' %>
+      <% end %>
+      <% if user_signed_in? %>
+        <button type="button" class="menu-signout" id="menu-signout" aria-label="サインアウト">
+          <svg class="menu-signout__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="11" fill="#d32f2f" />
+            <rect x="6.75" y="7" width="4.5" height="10" rx="1" fill="#ffffff" opacity="0.9" />
+            <path d="M12.5 8.75h2.1l3.35 3.25-3.35 3.25h-2.1l2.2-2.15H9.75v-2.2h4.95z" fill="#ffffff" />
+          </svg>
+        </button>
+      <% end %>
     </div>
+    <% if user_signed_in? %>
+      <div id="signout-modal" class="signout-modal" aria-hidden="true">
+        <div class="signout-modal__overlay" data-signout-dismiss></div>
+        <div class="signout-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="signout-modal-title">
+          <h2 id="signout-modal-title" class="signout-modal__title">サインアウトしますか？</h2>
+          <p class="signout-modal__message">続行すると現在のセッションが終了します。</p>
+          <div class="signout-modal__actions">
+            <button type="button" class="signout-modal__button signout-modal__button--cancel" data-signout-dismiss>キャンセル</button>
+            <button type="button" class="signout-modal__button signout-modal__button--confirm" data-signout-confirm>OK</button>
+          </div>
+        </div>
+      </div>
+      <%= form_with url: destroy_user_session_path, method: :delete, local: true, html: { id: 'sign-out-form', class: 'sign-out-form' } do %>
+      <% end %>
+    <% end %>
+    <% flash.each do |type, message| %>
+      <% next if message.blank? %>
+      <div class="flash flash--<%= type %>"><%= message %></div>
+    <% end %>
     <%= yield %>
   </div><!--wrapper-->
   </div><!--container-->

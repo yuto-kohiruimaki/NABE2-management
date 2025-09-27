@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :set_post, only: [:edit, :update, :destroy, :show]
+    before_action :authorize_post!, only: [:edit, :update, :destroy, :show]
 
     def new
         @userName = current_user.name
@@ -22,13 +23,11 @@ class PostsController < ApplicationController
     end
 
     def edit
-        @post = Post.find_by(id: params[:id])
         @month = @post.post_date&.month
         @date = @post.post_date&.day
     end
 
     def update
-        @post = Post.find_by(id: params[:id])
         @post.place = params[:place]
         @post.name = params[:name]
         @post.desc = params[:desc]
@@ -37,18 +36,31 @@ class PostsController < ApplicationController
     end
 
     def destroy
-        post = Post.find_by(id: params[:id])
-        post.destroy
+        @post.destroy
         redirect_to index_path
     end
 
     def show
-        @post = Post.find(params[:id])
         @month = @post.post_date&.month
         @date = @post.post_date&.day
         @place = @post.place
         @name = @post.name
         @desc = @post.desc
         @userId = @post.user_id
+    end
+
+    private
+
+    def set_post
+        @post = Post.find_by(id: params[:id])
+        return if @post.present?
+
+        return redirect_to index_path(year: @abs_this_year, month: @abs_this_month), alert: "対象のデータが見つかりません。"
+    end
+
+    def authorize_post!
+        return if current_user.admin? || @post&.user_id == current_user.id
+
+        return redirect_to index_path(year: @abs_this_year, month: @abs_this_month), alert: "権限がありません。"
     end
 end
