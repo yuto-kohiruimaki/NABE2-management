@@ -12,7 +12,6 @@
     margin-top: 1rem;
     .index-content {
         position: relative;
-        border: 0.5px solid #ccc;
         border-radius: 1.5rem;
         background-color: #222;
         padding: 1rem;
@@ -44,6 +43,12 @@
                 .length {
                     margin-top: 2rem;
                     font-size: 2.5rem;
+                }
+                &:first-of-type {
+                    p:first-of-type,
+                    .length {
+                        font-weight: bold;
+                    }
                 }
                 &:nth-of-type(2) {
                     border-left: 0.5px solid #ccc;
