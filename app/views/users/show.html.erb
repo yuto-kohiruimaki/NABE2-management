@@ -1,3 +1,7 @@
+<head>
+    <%= javascript_import_module_tag "user" %>
+</head>
+
 <div class="mypage-title"><%= @user.name %><span>さんのマイページ</span></div>
 <div class="title2-container">
 <div class="change-month go-pre"><%= link_to '←', user_path(id: params[:id], year: params[:year], month: params[:month], p: @x) %></div>
@@ -22,7 +26,7 @@
 
 <div class="calender-title">-打刻履歴-</div>
 
-<table class="mypage-calender">
+<table class="mypage-calender" data-user-id="<%= @user.id %>" data-year="<%= @this_year %>" data-month="<%= @this_month %>">
     <tr class="mypage-week">
       <td>日</td>
       <td>月</td>

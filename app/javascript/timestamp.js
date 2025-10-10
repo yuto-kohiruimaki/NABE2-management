@@ -1,10 +1,17 @@
 
     console.log("test");
 
+    // URLパラメータから年月日を取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramYear = urlParams.get('year');
+    const paramMonth = urlParams.get('month');
+    const paramDay = urlParams.get('day');
+
+    // URLパラメータがある場合はそれを使用、ない場合は現在の日付を使用
     const getDay = new Date();
-    const thisMonth = getDay.getMonth() + 1;
-    const today = getDay.getDate();
-    
+    const thisMonth = paramMonth ? parseInt(paramMonth) : getDay.getMonth() + 1;
+    const today = paramDay ? parseInt(paramDay) : getDay.getDate();
+
     const month = document.getElementById('month');
     const monthOptions = month.options;
     const monthArr = {};
@@ -14,7 +21,7 @@
     const monthValuesArr = Object.values(monthArr);
     const findMonth = monthValuesArr.find((num) => num == thisMonth);
     monthOptions[findMonth - 1].selected = true;
-    
+
     const date = document.getElementById('date');
     const dateOptions = date.options;
     const dateArr ={};
