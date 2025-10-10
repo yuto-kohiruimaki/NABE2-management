@@ -23,11 +23,11 @@ class TimesController < ApplicationController
       finish_time = nil
       
       if params[:start_time_h].present? && params[:start_time_m].present?
-        start_time = work_date.to_datetime + params[:start_time_h].to_i.hours + params[:start_time_m].to_i.minutes
+        start_time = Time.zone.local(work_date.year, work_date.month, work_date.day, params[:start_time_h].to_i, params[:start_time_m].to_i)
       end
-      
+
       if params[:finish_time_h].present? && params[:finish_time_m].present?
-        finish_time = work_date.to_datetime + params[:finish_time_h].to_i.hours + params[:finish_time_m].to_i.minutes
+        finish_time = Time.zone.local(work_date.year, work_date.month, work_date.day, params[:finish_time_h].to_i, params[:finish_time_m].to_i)
         # 終了時間が開始時間より前の場合、翌日として処理
         if finish_time && start_time && finish_time < start_time
           finish_time += 1.day
@@ -60,11 +60,11 @@ class TimesController < ApplicationController
       finish_time = nil
       
       if params[:start_time_h].present? && params[:start_time_m].present?
-        start_time = work_date.to_datetime + params[:start_time_h].to_i.hours + params[:start_time_m].to_i.minutes
+        start_time = Time.zone.local(work_date.year, work_date.month, work_date.day, params[:start_time_h].to_i, params[:start_time_m].to_i)
       end
-      
+
       if params[:finish_time_h].present? && params[:finish_time_m].present?
-        finish_time = work_date.to_datetime + params[:finish_time_h].to_i.hours + params[:finish_time_m].to_i.minutes
+        finish_time = Time.zone.local(work_date.year, work_date.month, work_date.day, params[:finish_time_h].to_i, params[:finish_time_m].to_i)
         # 終了時間が開始時間より前の場合、翌日として処理
         if finish_time && start_time && finish_time < start_time
           finish_time += 1.day
