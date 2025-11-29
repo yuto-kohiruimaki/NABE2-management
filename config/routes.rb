@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       patch :toggle_status, on: :member
     end
     resources :work_plans, only: [:index, :create]
+    resource :monthly_note, only: :update
     root to: 'dashboard#show', as: :root
   end
 

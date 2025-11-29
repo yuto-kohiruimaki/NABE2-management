@@ -4,6 +4,12 @@
   <div class="title2"><%= @year %><span>年</span><%= @month %><span>月</span></div>
   <div class="change-month"><%= link_to '→', users_path(n: @x) %></div>
 </div>
+<div class="monthly-note-display">
+  <div class="monthly-note-display__label">月次メモ</div>
+  <div class="monthly-note-display__content <%= 'monthly-note-display__content--empty' unless @monthly_note&.description.present? %>">
+    <%= @monthly_note&.description.present? ? simple_format(@monthly_note.description) : 'メモはありません' %>
+  </div>
+</div>
 <div class="users-index">
   <% @users.each do |user| %>
     <% next if user.is_deleted? %>

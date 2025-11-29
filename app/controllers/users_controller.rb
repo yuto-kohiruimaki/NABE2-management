@@ -105,6 +105,9 @@ class UsersController < ApplicationController
 
     @work_plans = WorkPlan.for_period(period_start).index_by(&:user_id)
     @addedTimestamp = Timestamp.where(work_date: period_start..period_end, day_off: [false, nil]) # アップデート前はday_offの値を持たないのでnilを許容
+
+    month_string = format("%04d-%02d", @year, @month)
+    @monthly_note = MonthlyNote.find_by(month: month_string)
   end
 
   def set_user

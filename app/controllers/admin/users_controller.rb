@@ -2,6 +2,7 @@ module Admin
   class UsersController < ::UsersController
     before_action :require_admin!
     before_action :set_admin_user, only: :toggle_status
+    before_action :load_monthly_note, only: :index
 
     def toggle_status
       desired_status = ActiveModel::Type::Boolean.new.cast(user_status_params[:is_deleted])
@@ -28,6 +29,11 @@ module Admin
 
     def user_status_params
       params.require(:user).permit(:is_deleted)
+    end
+
+    def load_monthly_note
+      month_string = format("%04d-%02d", @year, @month)
+      @monthly_note = MonthlyNote.find_or_initialize_by(month: month_string)
     end
   end
 end

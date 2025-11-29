@@ -5,6 +5,21 @@
   <div class="change-month"><%= link_to '→', admin_users_path(n: @x, year: @year, month: @month) %></div>
 </div>
 
+<div class="monthly-note-container">
+  <%= form_with url: admin_monthly_note_path, method: :patch, local: true, class: "monthly-note-form" do |f| %>
+    <%= hidden_field_tag :year, @year %>
+    <%= hidden_field_tag :month, @month %>
+    <div class="monthly-note-header">
+      <label for="monthly_note_description" class="monthly-note-label">月次メモ</label>
+      <button type="submit" class="monthly-note-save-button">保存</button>
+    </div>
+    <%= text_area_tag 'monthly_note[description]', @monthly_note.description,
+        class: 'monthly-note-textarea',
+        placeholder: 'この月に関するメモを入力してください...',
+        rows: 3 %>
+  <% end %>
+</div>
+
 <div class="admin-users-table-container">
   <table class="admin-users-table">
     <thead>
