@@ -3,6 +3,42 @@
     text-align: center;
 }
 
+.monthly-note-display {
+    margin-top: 2rem;
+    background-color: #1f1f1f;
+    border-radius: 1.2rem;
+    border: 1px solid #2d2d2d;
+    padding: 1.6rem;
+
+    &__label {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #999;
+        margin-bottom: 0.8rem;
+    }
+
+    &__content {
+        font-size: 1.5rem;
+        line-height: 1.7;
+        color: #d9d9d9;
+        max-height: 300px;
+        overflow-y: auto;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        &--empty {
+            color: #666;
+            font-style: italic;
+        }
+    }
+}
+
 .users-index {
     display: grid;
     gap: 1rem;
